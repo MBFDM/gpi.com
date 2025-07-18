@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formations - EtudiantsFR</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #e74c3c;
+            --accent: #3498db;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --gradient-primary: linear-gradient(135deg, #3498db, #2c3e50);
+            --gradient-secondary: linear-gradient(135deg, #e74c3c, #c0392b);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+        
+        /* Header */
+        header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 12px;
+            color: var(--accent);
+            font-size: 2rem;
+        }
+        
+        /* Navbar */
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            position: relative;
+            margin-left: 1.5rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.6rem 1rem;
+            display: block;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        
+        .nav-links a:hover, .nav-links a.active {
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+        
+        .login-btn {
+            background: var(--gradient-secondary);
+            border-radius: 6px;
+            padding: 0.7rem 1.5rem;
+            margin-left: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+        }
+        
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+            margin-bottom: 3rem;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+        
+        .search-bar {
+            max-width: 700px;
+            margin: 2rem auto 0;
+            display: flex;
+            background: white;
+            border-radius: 50px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .search-bar input {
+            flex: 1;
+            padding: 1.2rem 1.5rem;
+            border: none;
+            font-size: 1rem;
+            outline: none;
+        }
+        
+        .search-bar button {
+            padding: 0 2rem;
+            background: var(--secondary);
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .search-bar button:hover {
+            background: #c0392b;
+        }
+        
+        /* Formations Section */
+        .formations-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-primary);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .filter-btn {
+            padding: 0.6rem 1.5rem;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+        
+        .formations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .formation-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+        
+        .formation-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .formation-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--gradient-secondary);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 1;
+        }
+        
+        .formation-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .formation-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+        
+        .formation-card:hover .formation-image img {
+            transform: scale(1.1);
+        }
+        
+        .formation-content {
+            padding: 1.5rem;
+        }
+        
+        .formation-title {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .formation-school {
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .formation-school i {
+            margin-right: 8px;
+        }
+        
+        .formation-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .formation-detail {
+            display: flex;
+            align-items: center;
+        }
+        
+        .formation-detail i {
+            margin-right: 5px;
+            color: var(--accent);
+        }
+        
+        .formation-description {
+            margin-bottom: 1.5rem;
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .formation-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4);
+        }
+        
+        .btn-outline {
+            background: none;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+        }
+        
+        .btn-outline:hover {
+            background: rgba(52, 152, 219, 0.1);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-column p, .footer-column a {
+            margin-bottom: 1rem;
+            display: block;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-column a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 3rem;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding: 4rem 0;
+                clip-path: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .search-bar {
+                flex-direction: column;
+                border-radius: 10px;
+            }
+            
+            .search-bar input, .search-bar button {
+                width: 100%;
+                border-radius: 0;
+                padding: 1rem;
+            }
+            
+            .formations-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header avec Navbar -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                EtudiantsFR
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#" class="active">Formations</a></li>
+                <li><a href="#">Hébergement</a></li>
+                <li><a href="#">Visa</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#" class="login-btn">Se connecter</a></li>
+            </ul>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Trouvez la formation parfaite en France</h1>
+        <p>Découvrez plus de 10 000 formations dans les meilleures universités et écoles françaises</p>
+        
+        <div class="search-bar">
+            <input type="text" placeholder="Rechercher une formation, une université...">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+    </section>
+    
+    <!-- Formations Section -->
+    <section class="formations-container">
+        <div class="section-title">
+            <h2>Nos Formations</h2>
+        </div>
+        
+        <div class="filters">
+            <button class="filter-btn active">Toutes</button>
+            <button class="filter-btn">Licence</button>
+            <button class="filter-btn">Master</button>
+            <button class="filter-btn">Ingénieur</button>
+            <button class="filter-btn">Commerce</button>
+            <button class="filter-btn">Sciences</button>
+            <button class="filter-btn">Arts</button>
+        </div>
+        
+        <div class="formations-grid">
+            <!-- Formation 1 -->
+            <div class="formation-card">
+                <div class="formation-badge">Nouveau</div>
+                <div class="formation-image">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Master Informatique">
+                </div>
+                <div class="formation-content">
+                    <h3 class="formation-title">Master Informatique</h3>
+                    <div class="formation-school">
+                        <i class="fas fa-university"></i>
+                        Université Paris-Saclay
+                    </div>
+                    
+                    <div class="formation-details">
+                        <div class="formation-detail">
+                            <i class="fas fa-calendar-alt"></i>
+                            2 ans
+                        </div>
+                        <div class="formation-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Paris
+                        </div>
+                        <div class="formation-detail">
+                            <i class="fas fa-euro-sign"></i>
+                            3 000€/an
+                        </div>
+                    </div>
+                    
+                    <p class="formation-description">
+                        Formation d'excellence en informatique avec spécialisation possible en IA, cybersécurité ou développement web.
+                    </p>
+                    
+                    <div class="formation-actions">
+                        <button class="btn btn-outline">En savoir plus</button>
+                        <button class="btn btn-primary">Postuler</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Formation 2 -->
+            <div class="formation-card">
+                <div class="formation-image">
+                    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Licence Economie">
+                </div>
+                <div class="formation-content">
+                    <h3 class="formation-title">Licence Économie-Gestion</h3>
+                    <div class="formation-school">
+                        <i class="fas fa-university"></i>
+                        Université Paris-Dauphine
+                    </div>
+                    
+                    <div class="formation-details">
+                        <div class="formation-detail">
+                            <i class="fas fa-calendar-alt"></i>
+                            3 ans
+                        </div>
+                        <div class="formation-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Paris
+                        </div>
+                        <div class="formation-detail">
+                            <i class="fas fa-euro-sign"></i>
+                            2 700€/an
+                        </div>
+                    </div>
+                    
+                    <p class="formation-description">
+                        Formation complète en économie et gestion avec une approche pluridisciplinaire et professionnalisante.
+                    </p>
+                    
+                    <div class="formation-actions">
+                        <button class="btn btn-outline">En savoir plus</button>
+                        <button class="btn btn-primary">Postuler</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Formation 3 -->
+            <div class="formation-card">
+                <div class="formation-badge">Populaire</div>
+                <div class="formation-image">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="MBA International">
+                </div>
+                <div class="formation-content">
+                    <h3 class="formation-title">MBA International</h3>
+                    <div class="formation-school">
+                        <i class="fas fa-university"></i>
+                        HEC Paris
+                    </div>
+                    
+                    <div class="formation-details">
+                        <div class="formation-detail">
+                            <i class="fas fa-calendar-alt"></i>
+                            1 an
+                        </div>
+                        <div class="formation-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Jouy-en-Josas
+                        </div>
+                        <div class="formation-detail">
+                            <i class="fas fa-euro-sign"></i>
+                            42 000€
+                        </div>
+                    </div>
+                    
+                    <p class="formation-description">
+                        Programme prestigieux pour managers expérimentés souhaitant accélérer leur carrière à l'international.
+                    </p>
+                    
+                    <div class="formation-actions">
+                        <button class="btn btn-outline">En savoir plus</button>
+                        <button class="btn btn-primary">Postuler</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Formation 4 -->
+            <div class="formation-card">
+                <div class="formation-image">
+                    <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Ingénieur Civil">
+                </div>
+                <div class="formation-content">
+                    <h3 class="formation-title">Diplôme d'Ingénieur Civil</h3>
+                    <div class="formation-school">
+                        <i class="fas fa-university"></i>
+                        École des Ponts ParisTech
+                    </div>
+                    
+                    <div class="formation-details">
+                        <div class="formation-detail">
+                            <i class="fas fa-calendar-alt"></i>
+                            3 ans
+                        </div>
+                        <div class="formation-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Champs-sur-Marne
+                        </div>
+                        <div class="formation-detail">
+                            <i class="fas fa-euro-sign"></i>
+                            3 500€/an
+                        </div>
+                    </div>
+                    
+                    <p class="formation-description">
+                        Formation d'excellence en génie civil avec des spécialisations en construction durable et infrastructures intelligentes.
+                    </p>
+                    
+                    <div class="formation-actions">
+                        <button class="btn btn-outline">En savoir plus</button>
+                        <button class="btn btn-primary">Postuler</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Formation 5 -->
+            <div class="formation-card">
+                <div class="formation-image">
+                    <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Design Graphique">
+                </div>
+                <div class="formation-content">
+                    <h3 class="formation-title">Master Design Graphique</h3>
+                    <div class="formation-school">
+                        <i class="fas fa-university"></i>
+                        École des Arts Décoratifs
+                    </div>
+                    
+                    <div class="formation-details">
+                        <div class="formation-detail">
+                            <i class="fas fa-calendar-alt"></i>
+                            2 ans
+                        </div>
+                        <div class="formation-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Paris
+                        </div>
+                        <div class="formation-detail">
+                            <i class="fas fa-euro-sign"></i>
+                            4 200€/an
+                        </div>
+                    </div>
+                    
+                    <p class="formation-description">
+                        Programme créatif axé sur le design numérique, l'identité visuelle et l'expérience utilisateur.
+                    </p>
+                    
+                    <div class="formation-actions">
+                        <button class="btn btn-outline">En savoir plus</button>
+                        <button class="btn btn-primary">Postuler</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Formation 6 -->
+            <div class="formation-card">
+                <div class="formation-badge">Bourse disponible</div>
+                <div class="formation-image">
+                    <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Sciences Politiques">
+                </div>
+                <div class="formation-content">
+                    <h3 class="formation-title">Licence Sciences Politiques</h3>
+                    <div class="formation-school">
+                        <i class="fas fa-university"></i>
+                        Sciences Po Paris
+                    </div>
+                    
+                    <div class="formation-details">
+                        <div class="formation-detail">
+                            <i class="fas fa-calendar-alt"></i>
+                            3 ans
+                        </div>
+                        <div class="formation-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Paris
+                        </div>
+                        <div class="formation-detail">
+                            <i class="fas fa-euro-sign"></i>
+                            5 000€/an
+                        </div>
+                    </div>
+                    
+                    <p class="formation-description">
+                        Formation pluridisciplinaire en sciences sociales, relations internationales et politiques publiques.
+                    </p>
+                    
+                    <div class="formation-actions">
+                        <button class="btn btn-outline">En savoir plus</button>
+                        <button class="btn btn-primary">Postuler</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Formation 7 -->
+            <div class="formation-card">
+                <div class="formation-image">
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Médecine">
+                </div>
+                <div class="formation-content">
+                    <h3 class="formation-title">Premier Cycle de Médecine</h3>
+                    <div class="formation-school">
+                        <i class="fas fa-university"></i>
+                        Université Paris Descartes
+                    </div>
+                    
+                    <div class="formation-details">
+                        <div class="formation-detail">
+                            <i class="fas fa-calendar-alt"></i>
+                            3 ans
+                        </div>
+                        <div class="formation-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Paris
+                        </div>
+                        <div class="formation-detail">
+                            <i class="fas fa-euro-sign"></i>
+                            2 900€/an
+                        </div>
+                    </div>
+                    
+                    <p class="formation-description">
+                        Formation initiale en médecine avec préparation au concours de fin de première année (PACES).
+                    </p>
+                    
+                    <div class="formation-actions">
+                        <button class="btn btn-outline">En savoir plus</button>
+                        <button class="btn btn-primary">Postuler</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Formation 8 -->
+            <div class="formation-card">
+                <div class="formation-image">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Architecture">
+                </div>
+                <div class="formation-content">
+                    <h3 class="formation-title">Diplôme d'Architecture</h3>
+                    <div class="formation-school">
+                        <i class="fas fa-university"></i>
+                        École Nationale Supérieure d'Architecture
+                    </div>
+                    
+                    <div class="formation-details">
+                        <div class="formation-detail">
+                            <i class="fas fa-calendar-alt"></i>
+                            5 ans
+                        </div>
+                        <div class="formation-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Versailles
+                        </div>
+                        <div class="formation-detail">
+                            <i class="fas fa-euro-sign"></i>
+                            3 800€/an
+                        </div>
+                    </div>
+                    
+                    <p class="formation-description">
+                        Formation complète en architecture avec ateliers pratiques et stages en agence.
+                    </p>
+                    
+                    <div class="formation-actions">
+                        <button class="btn btn-outline">En savoir plus</button>
+                        <button class="btn btn-primary">Postuler</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Formation 9 -->
+            <div class="formation-card">
+                <div class="formation-badge">Double diplôme</div>
+                <div class="formation-image">
+                    <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Droit International">
+                </div>
+                <div class="formation-content">
+                    <h3 class="formation-title">Master Droit International</h3>
+                    <div class="formation-school">
+                        <i class="fas fa-university"></i>
+                        Université Paris 1 Panthéon-Sorbonne
+                    </div>
+                    
+                    <div class="formation-details">
+                        <div class="formation-detail">
+                            <i class="fas fa-calendar-alt"></i>
+                            2 ans
+                        </div>
+                        <div class="formation-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Paris
+                        </div>
+                        <div class="formation-detail">
+                            <i class="fas fa-euro-sign"></i>
+                            3 200€/an
+                        </div>
+                    </div>
+                    
+                    <p class="formation-description">
+                        Spécialisation en droit des affaires internationales et droit européen avec possibilité de double diplôme.
+                    </p>
+                    
+                    <div class="formation-actions">
+                        <button class="btn btn-outline">En savoir plus</button>
+                        <button class="btn btn-primary">Postuler</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Formation 10 -->
+            <div class="formation-card">
+                <div class="formation-image">
+                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Gastronomie">
+                </div>
+                <div class="formation-content">
+                    <h3 class="formation-title">CAP Cuisine</h3>
+                    <div class="formation-school">
+                        <i class="fas fa-university"></i>
+                        Le Cordon Bleu Paris
+                    </div>
+                    
+                    <div class="formation-details">
+                        <div class="formation-detail">
+                            <i class="fas fa-calendar-alt"></i>
+                            1 an
+                        </div>
+                        <div class="formation-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Paris
+                        </div>
+                        <div class="formation-detail">
+                            <i class="fas fa-euro-sign"></i>
+                            12 000€
+                        </div>
+                    </div>
+                    
+                    <p class="formation-description">
+                        Formation intensive en arts culinaires français avec stages en restaurants étoilés.
+                    </p>
+                    
+                    <div class="formation-actions">
+                        <button class="btn btn-outline">En savoir plus</button>
+                        <button class="btn btn-primary">Postuler</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>EtudiantsFR</h3>
+                <p>Accompagnement complet pour les étudiants internationaux souhaitant étudier en France.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Liens rapides</h3>
+                <a href="#">Accueil</a>
+                <a href="#">Formations</a>
+                <a href="#">Hébergement</a>
+                <a href="#">Demande de visa</a>
+                <a href="#">Contact</a>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Rue de l'Université, 75007 Paris</p>
+                <p><i class="fas fa-phone"></i> +33 1 23 45 67 89</p>
+                <p><i class="fas fa-envelope"></i> contact@etudiantsfr.com</p>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Newsletter</h3>
+                <p>Abonnez-vous pour recevoir nos dernières offres et conseils.</p>
+                <form>
+                    <input type="email" placeholder="Votre email" style="width: 100%; padding: 0.8rem; margin-bottom: 0.5rem; border-radius: 4px; border: none;">
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">S'abonner</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2023 EtudiantsFR. Tous droits réservés.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hébergements Étudiants - EtudiantsFR</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- CSS principal avec préchargement -->
+    <link rel="preload" href="../assets/css/hebergement.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="../assets/css/hebergement.css"></noscript>
+</head>
+<body>
+    <!-- Header avec Navbar -->
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                GPI
+            </a>
+            
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Étudiants</a></li>
+                <li><a href="#">Parents</a></li>
+                <li class="dropdown">
+                    <a href="#">Demande de visa</a>
+                    <div class="dropdown-content">
+                        <a href="#">AVI</a>
+                        <a href="#">Hébergement</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Vivre en France</a>
+                    <div class="dropdown-content">
+                        <a href="#">Job étudiants</a>
+                        <a href="#">Assurances</a>
+                    </div>
+                </li>
+                <li><a href="#">Tarifs</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#" class="login-btn">Connexion</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Trouvez votre hébergement étudiant idéal</h1>
+            <p>Découvrez nos offres de logements spécialement sélectionnés pour les étudiants internationaux en France</p>
+            
+            <div class="search-box">
+                <form class="search-form">
+                    <div class="search-group">
+                        <label for="ville">Ville</label>
+                        <select id="ville" class="search-control">
+                            <option>Paris</option>
+                            <option>Lyon</option>
+                            <option>Toulouse</option>
+                            <option>Montpellier</option>
+                            <option>Bordeaux</option>
+                        </select>
+                    </div>
+                    <div class="search-group">
+                        <label for="type">Type de logement</label>
+                        <select id="type" class="search-control">
+                            <option>Tous types</option>
+                            <option>Studio</option>
+                            <option>Colocation</option>
+                            <option>Résidence étudiante</option>
+                            <option>Appartement</option>
+                        </select>
+                    </div>
+                    <div class="search-group">
+                        <label for="budget">Budget max</label>
+                        <select id="budget" class="search-control">
+                            <option>€500/mois</option>
+                            <option>€700/mois</option>
+                            <option>€900/mois</option>
+                            <option>€1100/mois</option>
+                            <option>Pas de limite</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="search-btn">Rechercher</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Main Content -->
+    <main class="main-container">
+        <div class="section-title">
+            <h2>Nos offres d'hébergement</h2>
+            <p>Découvrez une sélection de logements adaptés aux étudiants internationaux</p>
+        </div>
+        
+        <div class="hebergements-grid">
+            <!-- Hébergement 1 -->
+            <div class="hebergement-card">
+                <div class="hebergement-badge">Nouveau</div>
+                <div class="hebergement-img">
+                    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Studio Paris">
+                </div>
+                <div class="hebergement-content">
+                    <div class="hebergement-price">€750 <span class="price-period">/ mois</span></div>
+                    <h3 class="hebergement-title">Studio meublé étudiant</h3>
+                    <div class="hebergement-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>75005 Paris</span>
+                    </div>
+                    <div class="hebergement-features">
+                        <div class="feature"><i class="fas fa-ruler-combined"></i> 25m²</div>
+                        <div class="feature"><i class="fas fa-bed"></i> 1 lit</div>
+                        <div class="feature"><i class="fas fa-wifi"></i> WiFi</div>
+                    </div>
+                    <div class="hebergement-footer">
+                        <a href="#" class="btn btn-outline">Détails</a>
+                        <a href="#" class="btn btn-primary">Réserver</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hébergement 2 -->
+            <div class="hebergement-card">
+                <div class="hebergement-img">
+                    <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Colocation Lyon">
+                </div>
+                <div class="hebergement-content">
+                    <div class="hebergement-price">€550 <span class="price-period">/ mois</span></div>
+                    <h3 class="hebergement-title">Chambre en colocation</h3>
+                    <div class="hebergement-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>69007 Lyon</span>
+                    </div>
+                    <div class="hebergement-features">
+                        <div class="feature"><i class="fas fa-ruler-combined"></i> 15m²</div>
+                        <div class="feature"><i class="fas fa-users"></i> 3 colocataires</div>
+                        <div class="feature"><i class="fas fa-utensils"></i> Cuisine</div>
+                    </div>
+                    <div class="hebergement-footer">
+                        <a href="#" class="btn btn-outline">Détails</a>
+                        <a href="#" class="btn btn-primary">Réserver</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hébergement 3 -->
+            <div class="hebergement-card">
+                <div class="hebergement-badge">Populaire</div>
+                <div class="hebergement-img">
+                    <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Résidence étudiante">
+                </div>
+                <div class="hebergement-content">
+                    <div class="hebergement-price">€680 <span class="price-period">/ mois</span></div>
+                    <h3 class="hebergement-title">Résidence étudiante</h3>
+                    <div class="hebergement-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>31000 Toulouse</span>
+                    </div>
+                    <div class="hebergement-features">
+                        <div class="feature"><i class="fas fa-ruler-combined"></i> 18m²</div>
+                        <div class="feature"><i class="fas fa-dumbbell"></i> Salle de sport</div>
+                        <div class="feature"><i class="fas fa-tshirt"></i> Laverie</div>
+                    </div>
+                    <div class="hebergement-footer">
+                        <a href="#" class="btn btn-outline">Détails</a>
+                        <a href="#" class="btn btn-primary">Réserver</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hébergement 4 -->
+            <div class="hebergement-card">
+                <div class="hebergement-img">
+                    <img src="https://images.unsplash.com/photo-1554469384-e58fac16e23a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Studio Bordeaux">
+                </div>
+                <div class="hebergement-content">
+                    <div class="hebergement-price">€620 <span class="price-period">/ mois</span></div>
+                    <h3 class="hebergement-title">Studio universitaire</h3>
+                    <div class="hebergement-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>33000 Bordeaux</span>
+                    </div>
+                    <div class="hebergement-features">
+                        <div class="feature"><i class="fas fa-ruler-combined"></i> 22m²</div>
+                        <div class="feature"><i class="fas fa-subway"></i> Proche campus</div>
+                        <div class="feature"><i class="fas fa-parking"></i> Parking</div>
+                    </div>
+                    <div class="hebergement-footer">
+                        <a href="#" class="btn btn-outline">Détails</a>
+                        <a href="#" class="btn btn-primary">Réserver</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hébergement 5 -->
+            <div class="hebergement-card">
+                <div class="hebergement-img">
+                    <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Appartement Lille">
+                </div>
+                <div class="hebergement-content">
+                    <div class="hebergement-price">€720 <span class="price-period">/ mois</span></div>
+                    <h3 class="hebergement-title">Appartement T1 bis</h3>
+                    <div class="hebergement-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>59000 Lille</span>
+                    </div>
+                    <div class="hebergement-features">
+                        <div class="feature"><i class="fas fa-ruler-combined"></i> 32m²</div>
+                        <div class="feature"><i class="fas fa-couch"></i> Meublé</div>
+                        <div class="feature"><i class="fas fa-bath"></i> Salle de bain</div>
+                    </div>
+                    <div class="hebergement-footer">
+                        <a href="#" class="btn btn-outline">Détails</a>
+                        <a href="#" class="btn btn-primary">Réserver</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hébergement 6 -->
+            <div class="hebergement-card">
+                <div class="hebergement-badge">Économique</div>
+                <div class="hebergement-img">
+                    <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1474&q=80" alt="Chambre Montpellier">
+                </div>
+                <div class="hebergement-content">
+                    <div class="hebergement-price">€480 <span class="price-period">/ mois</span></div>
+                    <h3 class="hebergement-title">Chambre étudiante</h3>
+                    <div class="hebergement-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>34000 Montpellier</span>
+                    </div>
+                    <div class="hebergement-features">
+                        <div class="feature"><i class="fas fa-ruler-combined"></i> 12m²</div>
+                        <div class="feature"><i class="fas fa-home"></i> Famille d'accueil</div>
+                        <div class="feature"><i class="fas fa-utensils"></i> Petit-déj inclus</div>
+                    </div>
+                    <div class="hebergement-footer">
+                        <a href="#" class="btn btn-outline">Détails</a>
+                        <a href="#" class="btn btn-primary">Réserver</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hébergement 7 -->
+            <div class="hebergement-card">
+                <div class="hebergement-img">
+                    <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Studio Nantes">
+                </div>
+                <div class="hebergement-content">
+                    <div class="hebergement-price">€590 <span class="price-period">/ mois</span></div>
+                    <h3 class="hebergement-title">Studio rénové</h3>
+                    <div class="hebergement-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>44000 Nantes</span>
+                    </div>
+                    <div class="hebergement-features">
+                        <div class="feature"><i class="fas fa-ruler-combined"></i> 20m²</div>
+                        <div class="feature"><i class="fas fa-thermometer-three-quarters"></i> Chauffage</div>
+                        <div class="feature"><i class="fas fa-elevator"></i> Ascenseur</div>
+                    </div>
+                    <div class="hebergement-footer">
+                        <a href="#" class="btn btn-outline">Détails</a>
+                        <a href="#" class="btn btn-primary">Réserver</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hébergement 8 -->
+            <div class="hebergement-card">
+                <div class="hebergement-badge">Exclusivité</div>
+                <div class="hebergement-img">
+                    <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Résidence Nice">
+                </div>
+                <div class="hebergement-content">
+                    <div class="hebergement-price">€820 <span class="price-period">/ mois</span></div>
+                    <h3 class="hebergement-title">Résidence premium</h3>
+                    <div class="hebergement-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>06000 Nice</span>
+                    </div>
+                    <div class="hebergement-features">
+                        <div class="feature"><i class="fas fa-ruler-combined"></i> 28m²</div>
+                        <div class="feature"><i class="fas fa-swimming-pool"></i> Piscine</div>
+                        <div class="feature"><i class="fas fa-wifi"></i> Fibre optique</div>
+                    </div>
+                    <div class="hebergement-footer">
+                        <a href="#" class="btn btn-outline">Détails</a>
+                        <a href="#" class="btn btn-primary">Réserver</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hébergement 9 -->
+            <div class="hebergement-card">
+                <div class="hebergement-img">
+                    <img src="https://images.unsplash.com/photo-1554469384-e58fac16e23a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Colocation Strasbourg">
+                </div>
+                <div class="hebergement-content">
+                    <div class="hebergement-price">€520 <span class="price-period">/ mois</span></div>
+                    <h3 class="hebergement-title">Colocation étudiante</h3>
+                    <div class="hebergement-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>67000 Strasbourg</span>
+                    </div>
+                    <div class="hebergement-features">
+                        <div class="feature"><i class="fas fa-ruler-combined"></i> 15m²</div>
+                        <div class="feature"><i class="fas fa-users"></i> 2 colocataires</div>
+                        <div class="feature"><i class="fas fa-bicycle"></i> Vélo offert</div>
+                    </div>
+                    <div class="hebergement-footer">
+                        <a href="#" class="btn btn-outline">Détails</a>
+                        <a href="#" class="btn btn-primary">Réserver</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hébergement 10 -->
+            <div class="hebergement-card">
+                <div class="hebergement-img">
+                    <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Studio Rennes">
+                </div>
+                <div class="hebergement-content">
+                    <div class="hebergement-price">€580 <span class="price-period">/ mois</span></div>
+                    <h3 class="hebergement-title">Studio universitaire</h3>
+                    <div class="hebergement-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>35000 Rennes</span>
+                    </div>
+                    <div class="hebergement-features">
+                        <div class="feature"><i class="fas fa-ruler-combined"></i> 18m²</div>
+                        <div class="feature"><i class="fas fa-subway"></i> Proche métro</div>
+                        <div class="feature"><i class="fas fa-shopping-cart"></i> Proche commerce</div>
+                    </div>
+                    <div class="hebergement-footer">
+                        <a href="#" class="btn btn-outline">Détails</a>
+                        <a href="#" class="btn btn-primary">Réserver</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hébergement 11 -->
+            <div class="hebergement-card">
+                <div class="hebergement-badge">Promo</div>
+                <div class="hebergement-img">
+                    <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Appartement Grenoble">
+                </div>
+                <div class="hebergement-content">
+                    <div class="hebergement-price">€670 <span class="price-period">/ mois</span></div>
+                    <h3 class="hebergement-title">Appartement T1</h3>
+                    <div class="hebergement-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>38000 Grenoble</span>
+                    </div>
+                    <div class="hebergement-features">
+                        <div class="feature"><i class="fas fa-ruler-combined"></i> 30m²</div>
+                        <div class="feature"><i class="fas fa-mountain"></i> Vue montagne</div>
+                        <div class="feature"><i class="fas fa-parking"></i> Parking inclus</div>
+                    </div>
+                    <div class="hebergement-footer">
+                        <a href="#" class="btn btn-outline">Détails</a>
+                        <a href="#" class="btn btn-primary">Réserver</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hébergement 12 -->
+            <div class="hebergement-card">
+                <div class="hebergement-img">
+                    <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Studio Aix-en-Provence">
+                </div>
+                <div class="hebergement-content">
+                    <div class="hebergement-price">€600 <span class="price-period">/ mois</span></div>
+                    <h3 class="hebergement-title">Studio étudiant</h3>
+                    <div class="hebergement-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>13100 Aix-en-Provence</span>
+                    </div>
+                    <div class="hebergement-features">
+                        <div class="feature"><i class="fas fa-ruler-combined"></i> 20m²</div>
+                        <div class="feature"><i class="fas fa-sun"></i> Balcon</div>
+                        <div class="feature"><i class="fas fa-bus"></i> Proche transport</div>
+                    </div>
+                    <div class="hebergement-footer">
+                        <a href="#" class="btn btn-outline">Détails</a>
+                        <a href="#" class="btn btn-primary">Réserver</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="pagination">
+            <a href="#" class="page-link active">1</a>
+            <a href="#" class="page-link">2</a>
+            <a href="#" class="page-link">3</a>
+            <a href="#" class="page-link">4</a>
+            <a href="#" class="page-link">Suivant</a>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>EtudiantsFR</h3>
+                <p>Accompagnement complet pour les étudiants internationaux souhaitant étudier en France.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Liens rapides</h3>
+                <a href="#">Espace Étudiants</a>
+                <a href="#">Espace Parents</a>
+                <a href="#">Demande de visa</a>
+                <a href="#">Vivre en France</a>
+                <a href="#">Nos tarifs</a>
+                <a href="#">Contact</a>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Services</h3>
+                <a href="#">Orientation académique</a>
+                <a href="#">Préparation de dossier</a>
+                <a href="#">Recherche de logement</a>
+                <a href="#">Jobs étudiants</a>
+                <a href="#">Cours de français</a>
+                <a href="#">Intégration en France</a>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Rue de l'Université, 75008 Paris</p>
+                <p><i class="fas fa-phone"></i> +33 1 23 45 67 89</p>
+                <p><i class="fas fa-envelope"></i> contact@etudiantsfr.com</p>
+                
+                <div class="newsletter-form">
+                    <h4>Newsletter</h4>
+                    <input type="email" placeholder="Votre email">
+                    <button class="newsletter-btn">S'abonner</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2023 EtudiantsFR. Tous droits réservés. | <a href="#">Mentions légales</a> | <a href="#">Politique de confidentialité</a> | <a href="#">CGU</a></p>
+        </div>
+    </footer>
+    
+    <script>
+        // Menu mobile
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+        const dropdowns = document.querySelectorAll('.dropdown');
+        
+        mobileMenu.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+        
+        dropdowns.forEach(dropdown => {
+            const link = dropdown.querySelector('a');
+            
+            link.addEventListener('click', function(e) {
+                if (window.innerWidth <= 992) {
+                    e.preventDefault();
+                    dropdown.classList.toggle('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

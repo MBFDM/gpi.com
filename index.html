@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EtudiantsFR - Étudier en France</title>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <!-- Préchargement des ressources critiques -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Chargement asynchrone des polices -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    
+    <!-- CSS non critique chargé de manière asynchrone -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
+    <!-- Favicon moderne -->
+    <link rel="icon" href="images/logo/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/logo/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <!-- CSS principal avec préchargement -->
+    <link rel="preload" href="assets/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="assets/css/style.css"></noscript>
+</head>
+<body>
+    <!-- Header avec Navbar et Hero -->
+    <header>
+        <div class="header-overlay"></div>
+        <div class="header-wave"></div>
+        <div class="header-content">
+            <nav class="navbar">
+                <a href="assets/img/logo.jpg" class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    GPI
+                </a>
+                
+                <div class="menu-toggle" id="mobile-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="index.html" class="active">Accueil</a></li>
+                    <li><a href="etudiants/etudiants.html">Étudiants</a></li>
+                    <li><a href="parents/parents.html">Parents</a></li>
+                    <li class="dropdown">
+                        <a href="#visa">Demande de visa</a>
+                        <div class="dropdown-content">
+                            <a href="etudiants/avi.html">AVI</a>
+                            <a href="etudiants/offre_hebergement.html">Hébergement</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#vivre">Vivre en France</a>
+                        <div class="dropdown-content">
+                            <a href="#job">Job étudiants</a>
+                            <a href="#assurance">Assurances</a>
+                        </div>
+                    </li>
+                    <li><a href="#tarifs">Tarifs</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#login" class="login-btn">Connexion</a></li>
+                </ul>
+            </nav>
+            
+            <div class="hero">
+                <h1>Réussissez votre projet d'études en France</h1>
+                <p>Notre équipe d'experts vous accompagne à chaque étape de votre parcours, de la préparation de votre dossier à votre intégration en France, pour faire de votre rêve une réalité.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="hero-btn btn-primary pulse-animation">Demander un entretien</a>
+                    <a href="#etudiants" class="hero-btn btn-secondary">Découvrir nos services</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Section Étudiants -->
+    <section id="etudiants" class="animate" data-aos="fade-up">
+        <div class="section-title">
+            <h2>Espace Étudiants</h2>
+            <p>Nous vous accompagnons dans toutes les étapes de votre projet d'études en France</p>
+        </div>
+        
+        <div class="card-container">
+            <div class="card animate delay-1" data-aos="fade-right" data-aos-delay="100">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Profil étudiant">
+                </div>
+                <div class="card-content">
+                    <h3>Mon Profil</h3>
+                    <p>Parlons ensemble pour définir votre projet d'études en France. Un projet clair et personnel est indispensable pour réussir ses études supérieures. Notre équipe vous aide à élaborer un plan sur mesure qui correspond à vos aspirations et à votre profil.</p>
+                    <a href="etudiants/profil_etudiant.html" class="btn btn-primary">Compléter mon profil</a>
+                </div>
+            </div>
+            
+            <div class="card animate delay-2" data-aos="fade-up" data-aos-delay="200">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Formation">
+                </div>
+                <div class="card-content">
+                    <h3>Choisir ma formation</h3>
+                    <p>L'une des premières raisons de l'échec, c'est la perte de motivation. Quand on se sent bien dans sa formation, on progresse plus vite. Nous vous aidons à trouver la formation qui correspond à vos aspirations et à votre projet professionnel, en tenant compte de votre parcours académique et de vos ambitions.</p>
+                    <a href="etudiants/formations.html" class="btn btn-primary">Explorer les formations</a>
+                </div>
+            </div>
+            
+            <div class="card animate delay-3" data-aos="fade-left" data-aos-delay="300">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1473&q=80" alt="Logement">
+                </div>
+                <div class="card-content">
+                    <h3>Trouver mon logement</h3>
+                    <p>Découvrez nos solutions d'hébergement adaptées aux étudiants internationaux en France. Nous vous aidons à trouver un logement sûr, bien situé et conforme aux exigences administratives, que ce soit en résidence universitaire, colocation ou studio indépendant.</p>
+                    <a href="etudiants/offre_hebergement.html" class="btn btn-primary">Voir les offres</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section diagonale avec animation scale -->
+    <section id="parents" class="diagonal-section" data-aos="zoom-in">
+        <div class="section-title">
+            <h2 class="scale-in">Espace Parents</h2>
+            <p class="scale-in delay-1">Nous comprenons vos préoccupations et vous accompagnons dans le projet de votre enfant</p>
+        </div>
+        
+        <div class="card-container">
+            <div class="card animate delay-1" data-aos="flip-left">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1573497491765-dccce02b29df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Parents">
+                </div>
+                <div class="card-content">
+                    <h3>Accompagner votre enfant</h3>
+                    <p>Nous comprenons que l'avenir de votre enfant est votre priorité. L'envoyer étudier à l'étranger est une décision importante qui nécessite une préparation minutieuse. Notre rôle est de vous fournir toutes les informations nécessaires pour que vous puissiez accompagner votre enfant en toute sérénité dans ce projet d'études en France.</p>
+                    <a href="#" class="btn btn-primary">En savoir plus</a>
+                </div>
+            </div>
+            
+            <div class="card animate delay-2" data-aos="flip-up">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Financement">
+                </div>
+                <div class="card-content">
+                    <h3>Financement des études</h3>
+                    <p>Le coût des études en France varie selon les établissements et les filières. Nous vous présentons les différentes options de financement disponibles : bourses, jobs étudiants, comptes bancaires bloqués et autres solutions financières pour sécuriser le parcours de votre enfant.</p>
+                    <a href="#" class="btn btn-primary">Découvrir</a>
+                </div>
+            </div>
+            
+            <div class="card animate delay-3" data-aos="flip-right">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80" alt="Sécurité">
+                </div>
+                <div class="card-content">
+                    <h3>Sécurité et bien-être</h3>
+                    <p>La sécurité et le bien-être de votre enfant sont nos priorités. Nous vous expliquons les dispositifs en place : assurance santé obligatoire, hébergements sécurisés, services d'urgence, accompagnement psychologique et toutes les mesures qui garantissent un environnement sûr pour les étudiants internationaux.</p>
+                    <a href="#" class="btn btn-primary">En savoir plus</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section Demande de Visa -->
+    <section id="visa" class="bubble-section" data-aos="fade-up" data-aos-duration="1000">
+        <div class="bubble bubble-1 float-animation"></div>
+        <div class="bubble bubble-2 float-animation" style="animation-delay: 2s;"></div>
+        <div class="section-title">
+            <h2>Demande de Visa Étudiant</h2>
+            <p>Notre expertise pour vous guider dans les démarches administratives</p>
+        </div>
+        
+        <div class="card-container">
+            <div class="card animate delay-1" data-aos="zoom-in">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Visa étudiant">
+                </div>
+                <div class="card-content">
+                    <h3>Procédure complète</h3>
+                    <p>Obtenir un visa étudiant pour la France peut sembler complexe, mais nous vous guidons à chaque étape du processus. De la préparation des documents à l'entretien à l'ambassade, notre équipe vous accompagne pour maximiser vos chances de succès.</p>
+                    <ul style="margin: 1rem 0 1.5rem; padding-left: 1.5rem;">
+                        <li style="margin-bottom: 0.5rem;">Acceptation dans un établissement français</li>
+                        <li style="margin-bottom: 0.5rem;">Préparation des documents financiers</li>
+                        <li style="margin-bottom: 0.5rem;">Demande d'AVI (si nécessaire)</li>
+                        <li style="margin-bottom: 0.5rem;">Réservation d'hébergement</li>
+                        <li style="margin-bottom: 0.5rem;">Dossier Campus France</li>
+                        <li>Entretien à l'ambassade</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Commencer ma demande</a>
+                </div>
+            </div>
+            
+            <div class="card animate delay-2" id="avi" data-aos="zoom-in" data-aos-delay="200">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1551524559-8af4e6624178?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1626&q=80" alt="AVI">
+                </div>
+                <div class="card-content">
+                    <h3>Autorisation de Voyage (AVI)</h3>
+                    <p>Certains étudiants doivent obtenir une Autorisation de Voyage avant de pouvoir faire leur demande de visa. Nous vous expliquons les critères d'éligibilité et vous accompagnons dans cette démarche préalable souvent méconnue mais essentielle.</p>
+                    <a href="#" class="btn btn-primary">Voir les conditions</a>
+                </div>
+            </div>
+            
+            <div class="card animate delay-3" id="hebergement" data-aos="zoom-in" data-aos-delay="400">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Hébergement">
+                </div>
+                <div class="card-content">
+                    <h3>Hébergement</h3>
+                    <p>Un logement conforme aux exigences administratives est souvent nécessaire pour obtenir le visa. Nous vous aidons à trouver un hébergement adapté à vos besoins et répondant aux critères requis, avec des garanties solides pour sécuriser votre dossier.</p>
+                    <a href="#" class="btn btn-primary">Trouver un logement</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section Vivre en France -->
+    <section id="vivre" class="pattern-section" data-aos="fade-up">
+        <div class="section-title">
+            <h2 class="rotate-in">Vivre en France</h2>
+            <p class="rotate-in delay-1">Préparez-vous à votre nouvelle vie étudiante en France</p>
+        </div>
+        
+        <div class="card-container">
+            <div class="card animate delay-1" id="job" data-aos="fade-right">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1511&q=80" alt="Job étudiant">
+                </div>
+                <div class="card-content">
+                    <h3>Job étudiant</h3>
+                    <p>En tant qu'étudiant étranger en France, vous avez le droit de travailler jusqu'à 964 heures par an (environ 60% d'un temps plein). Nous vous aidons à trouver des emplois adaptés à votre emploi du temps et à vos compétences, tout en respectant les conditions de votre visa.</p>
+                    <a href="#" class="btn btn-primary">Voir les offres</a>
+                </div>
+            </div>
+            
+            <div class="card animate delay-2" id="assurance" data-aos="fade-up">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Assurance">
+                </div>
+                <div class="card-content">
+                    <h3>Assurances</h3>
+                    <p>La sécurité sociale étudiante est obligatoire en France. Nous vous expliquons comment vous inscrire et quelles assurances complémentaires souscrire pour une couverture optimale (responsabilité civile, habitation, complémentaire santé).</p>
+                    <a href="#" class="btn btn-primary">En savoir plus</a>
+                </div>
+            </div>
+            
+            <div class="card animate delay-3" data-aos="fade-left">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1520&q=80" alt="Culture française">
+                </div>
+                <div class="card-content">
+                    <h3>Culture française</h3>
+                    <p>Découvrez nos conseils pour vous adapter à la culture française et profiter au maximum de votre expérience étudiante. Des codes sociaux aux habitudes quotidiennes, nous vous préparons à votre nouvelle vie en France.</p>
+                    <a href="#" class="btn btn-primary">Découvrir</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section Tarifs -->
+    <section id="tarifs" class="animate" style="background-color: #f9f9f9;" data-aos="fade-up">
+        <div class="section-title">
+            <h2>Nos Tarifs</h2>
+            <p>Des packages adaptés à chaque besoin</p>
+        </div>
+        
+        <div class="card-container">
+            <div class="card animate delay-1" style="text-align: center;" data-aos="fade-right">
+                <div class="card-content">
+                    <h3>Accompagnement de base</h3>
+                    <p style="font-size: 2.5rem; color: var(--primary); font-weight: 700; margin: 1.5rem 0;">€300</p>
+                    <ul style="text-align: left; margin: 1.5rem 0; list-style-type: none;">
+                        <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-check" style="position: absolute; left: 0; color: var(--accent);"></i>
+                            Aide à la recherche de formation
+                        </li>
+                        <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-check" style="position: absolute; left: 0; color: var(--accent);"></i>
+                            Préparation du dossier de candidature
+                        </li>
+                        <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-check" style="position: absolute; left: 0; color: var(--accent);"></i>
+                            Conseils pour l'entretien
+                        </li>
+                        <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-check" style="position: absolute; left: 0; color: var(--accent);"></i>
+                            Assistance administrative de base
+                        </li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Choisir ce package</a>
+                </div>
+            </div>
+            
+            <div class="card animate delay-2" style="text-align: center; transform: scale(1.05); z-index: 2; border: 2px solid var(--accent);" data-aos="zoom-in">
+                <div style="background: var(--gradient-primary); color: white; padding: 1rem; margin: -2rem -2rem 2rem -2rem; border-radius: 10px 10px 0 0;">
+                    <p style="font-weight: 600; margin: 0;">Le plus populaire</p>
+                </div>
+                <div class="card-content">
+                    <h3>Accompagnement complet</h3>
+                    <p style="font-size: 2.5rem; color: var(--primary); font-weight: 700; margin: 1.5rem 0;">€800</p>
+                    <ul style="text-align: left; margin: 1.5rem 0; list-style-type: none;">
+                        <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-check" style="position: absolute; left: 0; color: var(--accent);"></i>
+                            Tous les services du package de base
+                        </li>
+                        <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-check" style="position: absolute; left: 0; color: var(--accent);"></i>
+                            Préparation complète du dossier visa
+                        </li>
+                        <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-check" style="position: absolute; left: 0; color: var(--accent);"></i>
+                            Recherche et réservation de logement
+                        </li>
+                        <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-check" style="position: absolute; left: 0; color: var(--accent);"></i>
+                            Simulation d'entretien personnalisée
+                        </li>
+                        <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-check" style="position: absolute; left: 0; color: var(--accent);"></i>
+                            Assistance jusqu'à l'obtention du visa
+                        </li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Choisir ce package</a>
+                </div>
+            </div>
+            
+            <div class="card animate delay-3" style="text-align: center;" data-aos="fade-left">
+                <div class="card-content">
+                    <h3>Pack intégration</h3>
+                    <p style="font-size: 2.5rem; color: var(--primary); font-weight: 700; margin: 1.5rem 0;">€350</p>
+                    <ul style="text-align: left; margin: 1.5rem 0; list-style-type: none;">
+                        <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-check" style="position: absolute; left: 0; color: var(--accent);"></i>
+                            Accueil à l'aéroport
+                        </li>
+                        <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-check" style="position: absolute; left: 0; color: var(--accent);"></i>
+                            Carte SIM française
+                        </li>
+                        <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-check" style="position: absolute; left: 0; color: var(--accent);"></i>
+                            Ouverture compte bancaire
+                        </li>
+                        <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-check" style="position: absolute; left: 0; color: var(--accent);"></i>
+                            Inscription à la sécurité sociale
+                        </li>
+                        <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-check" style="position: absolute; left: 0; color: var(--accent);"></i>
+                            Visite d'orientation de la ville
+                        </li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Choisir ce package</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section Partenaires -->
+    <section id="partenaires" class="animate" data-aos="fade-up">
+        <div class="section-title">
+            <h2>Nos Partenaires</h2>
+            <p>Des institutions et établissements de confiance qui nous font confiance</p>
+        </div>
+        
+        <div class="partenaires-grid">
+            <img src="assets/img/universite_paris.jpg" alt="Université Paris" class="partenaire-logo" loading="lazy" data-aos="flip-left">
+            <img src="assets/img/campus_france.webp" alt="Campus France" class="partenaire-logo" loading="lazy" data-aos="flip-left" data-aos-delay="100">
+            <img src="assets/img/bnp_paribas.webp" alt="BNP Paribas" class="partenaire-logo" loading="lazy" data-aos="flip-left" data-aos-delay="200">
+            <img src="assets/img/escp_europe.webp" alt="ESCP Europe" class="partenaire-logo" loading="lazy" data-aos="flip-left" data-aos-delay="300">
+            <img src="assets/img/cci_france.png" alt="CCI France" class="partenaire-logo" loading="lazy" data-aos="flip-left" data-aos-delay="400">
+        </div>
+    </section>
+    
+    <!-- Section Témoignages avec Slider -->
+    <section id="temoignages" class="wave-section" data-aos="fade-up">
+        <div class="section-title">
+            <h2 class="fade-left">Ils nous font confiance</h2>
+            <p class="fade-right">Découvrez leurs témoignages</p>
+        </div>
+        
+        <div class="testimonials-slider">
+            <!-- Slider main container -->
+            <div class="swiper">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide">
+                        <div class="temoignage-content">
+                            <p>Grâce à EtudiantsFR, j'ai pu réaliser mon rêve d'étudier en France. Leur accompagnement personnalisé m'a permis d'obtenir mon visa sans difficulté et de trouver un logement adapté à mon budget. Je recommande vivement leurs services !</p>
+                        </div>
+                        <div class="temoignage-author">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Maria K.">
+                            <div class="author-info">
+                                <h4>Maria K.</h4>
+                                <p>Étudiante en Master, Université de Lyon</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="temoignage-content">
+                            <p>En tant que parent, j'étais très inquiet à l'idée d'envoyer mon fils étudier à l'étranger. L'équipe d'EtudiantsFR nous a rassurés et accompagnés à chaque étape. Aujourd'hui, mon fils est parfaitement intégré et épanoui dans ses études.</p>
+                        </div>
+                        <div class="temoignage-author">
+                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Jean D.">
+                            <div class="author-info">
+                                <h4>Jean D.</h4>
+                                <p>Parent d'étudiant, Belgique</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="temoignage-content">
+                            <p>Le processus de demande de visa était très complexe pour moi. Sans l'aide d'EtudiantsFR, je n'aurais jamais réussi à préparer tous les documents nécessaires. Ils ont été d'une patience et d'une professionnalisme remarquables.</p>
+                        </div>
+                        <div class="temoignage-author">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Amina S.">
+                            <div class="author-info">
+                                <h4>Amina S.</h4>
+                                <p>Étudiante en Licence, Sénégal</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="temoignage-content">
+                            <p>Ce qui m'a le plus impressionné, c'est leur connaissance des différentes formations en France. Ils m'ont guidé vers un programme qui correspond parfaitement à mes aspirations professionnelles. Deux ans plus tard, je ne regrette absolument pas mon choix !</p>
+                        </div>
+                        <div class="temoignage-author">
+                            <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Carlos M.">
+                            <div class="author-info">
+                                <h4>Carlos M.</h4>
+                                <p>Étudiant en MBA, Brésil</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- If we need pagination -->
+                <div class="swiper-pagination"></div>
+                
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section Contact -->
+    <section id="contact" class="animate" data-aos="fade-up">
+        <div class="section-title">
+            <h2>Contactez-nous</h2>
+            <p>Nous sommes à votre disposition pour répondre à toutes vos questions</p>
+        </div>
+        
+        <div class="contact-grid">
+            <div class="contact-info animate delay-1" data-aos="fade-right">
+                <h3>Informations de contact</h3>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h4>Adresse</h4>
+                        <p>123 Avenue des Champs-Élysées, 75008 Paris, France</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h4>Téléphone</h4>
+                        <p><a href="tel:+33123456789">+33 1 23 45 67 89</a></p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h4>Email</h4>
+                        <p><a href="mailto:contact@etudiantsfr.com">contact@etudiantsfr.com</a></p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h4>Horaires d'ouverture</h4>
+                        <p>Lundi - Vendredi : 9h - 18h</p>
+                        <p>Samedi : 10h - 15h</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form animate delay-2" data-aos="fade-left">
+                <h3>Envoyez-nous un message</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Nom complet</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Sujet</label>
+                        <select id="subject">
+                            <option value="visa">Demande de visa</option>
+                            <option value="formation">Formation</option>
+                            <option value="logement">Logement</option>
+                            <option value="autre">Autre</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Envoyer le message</button>
+                </form>
+            </div>
+        </div>
+        
+        <div id="map" class="animate delay-3" data-aos="zoom-in"></div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="animate" data-aos="fade-up">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>EtudiantsFR</h3>
+                <p>Notre mission est d'accompagner les étudiants internationaux dans leur projet d'études en France, en leur offrant un service personnalisé et professionnel à chaque étape de leur parcours.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Liens rapides</h3>
+                <a href="#etudiants">Espace Étudiants</a>
+                <a href="#parents">Espace Parents</a>
+                <a href="#visa">Demande de visa</a>
+                <a href="#vivre">Vivre en France</a>
+                <a href="#tarifs">Nos tarifs</a>
+                <a href="#contact">Contact</a>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Services</h3>
+                <a href="#">Orientation académique</a>
+                <a href="#">Préparation de dossier</a>
+                <a href="#">Recherche de logement</a>
+                <a href="#">Jobs étudiants</a>
+                <a href="#">Cours de français</a>
+                <a href="#">Intégration en France</a>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Newsletter</h3>
+                <p>Abonnez-vous à notre newsletter pour recevoir des conseils et des offres exclusives.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Votre email" required>
+                    <button type="submit" class="newsletter-btn">S'abonner</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2025 EtudiantsFR. Tous droits réservés. | <a href="#" style="color: rgba(255,255,255,0.7);">Mentions légales</a> | <a href="#" style="color: rgba(255,255,255,0.7);">Politique de confidentialité</a></p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        // Initialisation de AOS (Animate On Scroll)
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+        
+        // Initialisation du slider Swiper
+        const swiper = new Swiper('.swiper', {
+            // Optional parameters
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            coverflowEffect: {
+                rotate: 0,
+                stretch: 0,
+                depth: 100,
+                modifier: 2,
+                slideShadows: true,
+            },
+            
+            // If we need pagination
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            
+            // Navigation arrows
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+        
+        // Menu mobile
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+        const dropdowns = document.querySelectorAll('.dropdown');
+        
+        mobileMenu.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+        
+        dropdowns.forEach(dropdown => {
+            const link = dropdown.querySelector('a');
+            
+            link.addEventListener('click', function(e) {
+                if (window.innerWidth <= 992) {
+                    e.preventDefault();
+                    dropdown.classList.toggle('active');
+                }
+            });
+        });
+        
+        // Animation au défilement
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate');
+            const windowHeight = window.innerHeight;
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementPosition < windowHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+        
+        // Navigation fluide
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Fermer le menu mobile si ouvert
+                    if (navLinks.classList.contains('active')) {
+                        mobileMenu.classList.remove('active');
+                        navLinks.classList.remove('active');
+                    }
+                }
+            });
+        });
+        
+        // Carte Leaflet
+        function initMap() {
+            const map = L.map('map').setView([48.8566, 2.3522], 13);
+            
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            
+            L.marker([48.8566, 2.3522]).addTo(map)
+                .bindPopup('Nos bureaux à Paris')
+                .openPopup();
+        }
+        
+        // Initialiser la carte lorsque la section est visible
+        function initMapWhenVisible() {
+            const contactSection = document.getElementById('contact');
+            const observer = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting) {
+                    initMap();
+                    observer.disconnect();
+                }
+            }, { threshold: 0.1 });
+            
+            observer.observe(contactSection);
+        }
+        
+        document.addEventListener('DOMContentLoaded', initMapWhenVisible);
+        
+        // Effet de parallaxe sur l'image du header
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.pageYOffset;
+            const headerOverlay = document.querySelector('.header-overlay');
+            
+            if (headerOverlay) {
+                headerOverlay.style.transform = `translateY(${scrollPosition * 0.5}px)`;
+            }
+        });
+    </script>
+</body>
+</html>

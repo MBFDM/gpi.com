@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EtudiantsFR - Espace Parents</title>
+    
+    <!-- Préchargement des ressources critiques -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Chargement asynchrone des polices -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    
+    <!-- CSS non critique chargé de manière asynchrone -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" media="print" onload="this.media='all'">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="../images/logo/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="../images/logo/apple-touch-icon.png">
+    <link rel="manifest" href="../site.webmanifest">
+    
+    <!-- CSS principal avec préchargement -->
+    <link rel="preload" href="../assets/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="../assets/css/style.css"></noscript>
+    
+    <style>
+        /* Variables CSS cohérentes avec le design principal */
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --gradient-primary: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+            --gradient-accent: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            --shadow-sm: 0 2px 10px rgba(0,0,0,0.1);
+            --shadow-md: 0 5px 15px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --transition: all 0.3s ease;
+        }
+        
+        /* Styles spécifiques à la page parents */
+        .parents-hero {
+            background: var(--gradient-primary), 
+                        url('https://images.unsplash.com/photo-1573497491765-dccce02b29df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+            padding: 10rem 0 8rem;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .parents-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="white"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="white"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="white"/></svg>') no-repeat;
+            background-size: cover;
+            z-index: 1;
+        }
+        
+        .parents-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .parents-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            animation: fadeInDown 1s ease;
+        }
+        
+        .parents-hero .lead {
+            font-size: 1.5rem;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            animation: fadeIn 1s ease 0.3s both;
+        }
+        
+        .parents-hero .btn {
+            animation: fadeInUp 1s ease 0.6s both;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .parents-guide {
+            background-color: var(--light);
+            padding: 6rem 0;
+            position: relative;
+        }
+        
+        .guide-step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            background: white;
+            border-radius: var(--radius-md);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .guide-step:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .guide-step::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--accent);
+        }
+        
+        .step-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-right: 2.5rem;
+            min-width: 60px;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .step-content h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .step-content p {
+            color: #555;
+            line-height: 1.7;
+        }
+        
+        .faq-section {
+            padding: 6rem 0;
+            background: white;
+        }
+        
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border: 1px solid #eee;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .faq-item:hover {
+            border-color: var(--secondary);
+        }
+        
+        .faq-question {
+            padding: 1.5rem;
+            background: var(--light);
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+        
+        .faq-question:hover {
+            background: #e0e0e0;
+        }
+        
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding 0.4s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 1.5rem;
+            max-height: 500px;
+        }
+        
+        .testimonials-parents {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 6rem 0;
+            position: relative;
+        }
+        
+        .testimonials-parents::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="white"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="white"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="white"/></svg>') no-repeat;
+            background-size: cover;
+            transform: rotate(180deg);
+        }
+        
+        .feature-box {
+            background: white;
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .feature-box:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-right: 1.5rem;
+            min-width: 50px;
+            text-align: center;
+        }
+        
+        .feature-content h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .stat-item {
+            background: white;
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .stat-text {
+            color: var(--primary);
+            font-weight: 500;
+        }
+        
+        @media (max-width: 992px) {
+            .parents-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .parents-hero .lead {
+                font-size: 1.25rem;
+            }
+            
+            .guide-step {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .step-number {
+                margin-right: 0;
+                margin-bottom: 1.5rem;
+            }
+            
+            .feature-box {
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+            }
+            
+            .feature-icon {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .parents-hero {
+                padding: 8rem 0 6rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header avec Navbar -->
+    <header>
+        <div class="header-overlay"></div>
+        <div class="header-content">
+            <nav class="navbar">
+                <a href="../index.html" class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    EtudiantsFR
+                </a>
+                
+                <div class="menu-toggle" id="mobile-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="../index.html">Accueil</a></li>
+                    <li><a href="../etudiants/etudiants.html">Étudiants</a></li>
+                    <li><a href="parents.html" class="active">Parents</a></li>
+                    <li class="dropdown">
+                        <a href="../index.html#visa">Demande de visa</a>
+                        <div class="dropdown-content">
+                            <a href="../index.html#avi">AVI</a>
+                            <a href="../index.html#hebergement">Hébergement</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="../index.html#vivre">Vivre en France</a>
+                        <div class="dropdown-content">
+                            <a href="../index.html#job">Job étudiants</a>
+                            <a href="../index.html#assurance">Assurances</a>
+                        </div>
+                    </li>
+                    <li><a href="../index.html#tarifs">Tarifs</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                    <li><a href="#login" class="login-btn">Se connecter</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Hero Section Parents -->
+    <section class="parents-hero animate">
+        <div class="container">
+            <h1>Espace Parents</h1>
+            <p class="lead">Nous comprenons vos préoccupations et vous accompagnons dans le projet d'études de votre enfant en France</p>
+            <a href="#contact" class="btn btn-primary btn-lg">Prendre rendez-vous</a>
+        </div>
+    </section>
+    
+    <!-- Section Introduction -->
+    <section class="section animate">
+        <div class="container">
+            <div class="section-title">
+                <h2>Votre enfant souhaite étudier en France</h2>
+                <p>Nous accompagnons les familles à chaque étape de ce projet important</p>
+            </div>
+            
+            <div class="text-center" style="max-width: 800px; margin: 0 auto 3rem;">
+                <p>En tant que parents, vous jouez un rôle essentiel dans la réussite du projet d'études de votre enfant à l'étranger. Nous comprenons vos inquiétudes légitimes concernant son avenir académique, son bien-être et sa sécurité dans un nouveau pays.</p>
+                <p>Notre équipe d'experts est là pour vous fournir toutes les informations nécessaires et vous accompagner, vous et votre enfant, dans cette aventure passionnante.</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">95%</div>
+                    <div class="stat-text">de réussite aux visas</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-text">assistance disponible</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-text">années d'expérience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-text">logements vérifiés</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Guide pour les parents -->
+    <section class="parents-guide animate">
+        <div class="container">
+            <div class="section-title">
+                <h2>Notre guide pour les parents</h2>
+                <p>Les étapes clés pour accompagner votre enfant</p>
+            </div>
+            
+            <div class="guide-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Évaluer la faisabilité du projet</h3>
+                    <p>Nous vous aidons à comprendre les exigences académiques et financières pour étudier en France. Ensemble, nous évaluons le profil de votre enfant, ses motivations et les perspectives professionnelles des différentes formations.</p>
+                </div>
+            </div>
+            
+            <div class="guide-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Choisir la bonne formation</h3>
+                    <p>Notre expertise des établissements français nous permet de vous conseiller sur les formations qui correspondent au profil de votre enfant et à vos attentes en termes de qualité d'enseignement, de reconnaissance du diplôme et de débouchés professionnels.</p>
+                </div>
+            </div>
+            
+            <div class="guide-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Préparer le dossier financier</h3>
+                    <p>Nous vous expliquons les exigences des autorités françaises concernant les preuves financières et vous guidons dans la préparation des documents nécessaires (comptes bloqués, attestations de prise en charge, etc.).</p>
+                </div>
+            </div>
+            
+            <div class="guide-step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h3>Organiser l'hébergement et la vie quotidienne</h3>
+                    <p>Nous proposons des solutions d'hébergement sécurisées et adaptées aux étudiants internationaux, ainsi que des services pour faciliter l'installation (ouverture de compte bancaire, assurance santé, transport, etc.).</p>
+                </div>
+            </div>
+            
+            <div class="guide-step">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <h3>Suivi et accompagnement sur place</h3>
+                    <p>Une fois en France, votre enfant bénéficie d'un suivi régulier et peut contacter notre équipe en cas de besoin. Nous organisons également des rencontres entre parents pour partager expériences et conseils.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section Financement -->
+    <section class="section animate" style="background-color: white;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Financement des études</h2>
+                <p>Les solutions pour financer le projet d'études de votre enfant</p>
+            </div>
+            
+            <div class="card-container">
+                <div class="card animate delay-1">
+                    <div class="card-icon">
+                        <i class="fas fa-piggy-bank"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Compte bloqué</h3>
+                        <p>Solution obligatoire pour le visa, permettant de prouver que votre enfant dispose des ressources nécessaires pour vivre en France (actuellement 615€ par mois).</p>
+                        <a href="#" class="btn btn-outline-primary">En savoir plus</a>
+                    </div>
+                </div>
+                
+                <div class="card animate delay-2">
+                    <div class="card-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Bourses d'études</h3>
+                        <p>Plusieurs types de bourses sont accessibles aux étudiants internationaux : bourses du gouvernement français, bourses d'établissements, bourses de coopération.</p>
+                        <a href="#" class="btn btn-outline-primary">En savoir plus</a>
+                    </div>
+                </div>
+                
+                <div class="card animate delay-3">
+                    <div class="card-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Job étudiant</h3>
+                        <p>Les étudiants étrangers peuvent travailler jusqu'à 964 heures par an (environ 60% d'un temps plein), ce qui permet de compléter le budget mensuel.</p>
+                        <a href="#" class="btn btn-outline-primary">En savoir plus</a>
+                    </div>
+                </div>
+            </div>
+            </br>
+            </br>
+            <div class="text-center mt-5">
+                <a href="#" class="btn btn-primary">Télécharger notre guide financier complet</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section Sécurité -->
+    <section class="section animate" style="background-color: var(--light);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Sécurité et bien-être</h2>
+                <p>Nos engagements pour la sécurité de votre enfant</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3>Hébergements sécurisés</h3>
+                            <p>Tous nos logements partenaires sont visités et vérifiés par notre équipe. Ils répondent à des critères stricts de sécurité, de propreté et d'accessibilité.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3>Couverture santé complète</h3>
+                            <p>Nous aidons votre enfant à s'inscrire à la Sécurité Sociale étudiante obligatoire et vous conseillons sur les assurances complémentaires adaptées.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-friends"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3>Parrainage étudiant</h3>
+                            <p>Votre enfant est mis en relation avec un étudiant français ou international expérimenté pour l'aider dans ses démarches et son intégration.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <div class="feature-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3>Assistance 24/7</h3>
+                            <p>Notre équipe reste disponible en cas d'urgence. Nous fournissons à votre enfant tous les contacts utiles (ambassade, services d'urgence, etc.).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section class="faq-section animate">
+        <div class="container">
+            <div class="section-title">
+                <h2>Questions fréquentes des parents</h2>
+                <p>Retrouvez les réponses à vos principales interrogations</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Quelles sont les garanties pour la sécurité de mon enfant en France?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>La France est un pays sûr avec un système de protection sociale développé. Nous sélectionnons des logements dans des quartiers sûrs, vérifions les résidences étudiantes et fournissons à votre enfant tous les contacts d'urgence. De plus, les campus universitaires ont généralement leur propre service de sécurité.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Mon enfant peut-il travailler pendant ses études?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Oui, avec un visa étudiant valide, votre enfant a le droit de travailler jusqu'à 964 heures par an (environ 60% d'un temps plein). Cela représente environ 80 heures par mois. Nous aidons les étudiants à trouver des jobs adaptés à leur emploi du temps universitaire.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Comment puis-je envoyer de l'argent à mon enfant en France?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Plusieurs solutions existent : virements bancaires internationaux (nous aidons votre enfant à ouvrir un compte), services de transfert d'argent en ligne (Wise, Western Union), ou cartes prépayées internationales. Nous pouvons vous conseiller sur la méthode la plus avantageuse selon votre pays.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Que se passe-t-il si mon enfant échoue à ses examens?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>En cas d'échec, plusieurs options sont possibles : redoubler (certaines formations le permettent), se réorienter, ou dans certains cas exceptionnels, demander un visa de régularisation. Notre équipe accompagne votre enfant dans ces démarches et l'aide à trouver la meilleure solution.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Puis-je rendre visite à mon enfant en France?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Bien sûr! Vous pouvez venir en tant que touriste (sous réserve des conditions de visa selon votre nationalité). Nous pouvons vous conseiller sur les démarches et vous aider à trouver un hébergement pour votre séjour. De nombreux parents profitent des vacances scolaires pour venir voir leur enfant.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="#" class="btn btn-primary">Voir toutes les questions</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Témoignages Parents -->
+    <section class="testimonials-parents animate">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ils nous ont fait confiance</h2>
+                <p>Ce que disent les parents de nos services</p>
+            </div>
+            
+            <div class="temoignages-container">
+                <div class="temoignage">
+                    <div class="temoignage-content">
+                        <p>"Envoyer notre fille étudier en France était une décision difficile, mais l'accompagnement d'EtudiantsFR nous a rassurés à chaque étape. Aujourd'hui, elle est parfaitement intégrée et épanouie dans ses études."</p>
+                    </div>
+                    <div class="temoignage-author">
+                        <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Sophie M.">
+                        <div class="author-info">
+                            <h4>Sophie M.</h4>
+                            <p>Maman de Clara, étudiante en médecine</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="temoignage">
+                    <div class="temoignage-content">
+                        <p>"Les conseils financiers d'EtudiantsFR nous ont été précieux pour organiser le budget de notre fils. Leur connaissance des bourses et aides disponibles nous a permis de réduire significativement les coûts."</p>
+                    </div>
+                    <div class="temoignage-author">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Jean-Luc D.">
+                        <div class="author-info">
+                            <h4>Jean-Luc D.</h4>
+                            <p>Papa de Thomas, étudiant en ingénierie</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="temoignage">
+                    <div class="temoignage-content">
+                        <p>"Ce qui m'a le plus impressionné, c'est leur réactivité. Quand notre fille a eu un problème avec son logement, ils ont trouvé une solution en moins de 24h. On se sent vraiment en confiance."</p>
+                    </div>
+                    <div class="temoignage-author">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Amina K.">
+                        <div class="author-info">
+                            <h4>Amina K.</h4>
+                            <p>Maman de Leila, étudiante en commerce</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section Contact -->
+    <section id="contact" class="section animate" style="background-color: white;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Vous avez des questions?</h2>
+                <p>Notre équipe est à votre disposition</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Contactez-nous</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Ligne parents</h4>
+                            <p><a href="tel:+33123456789">+33 1 23 45 67 89</a></p>
+                            <small>Lundi-vendredi, 9h-18h (heure de Paris)</small>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Email dédié</h4>
+                            <p><a href="mailto:parents@etudiantsfr.com">parents@etudiantsfr.com</a></p>
+                            <small>Réponse sous 24h ouvrées</small>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Rendez-vous en ligne</h4>
+                            <p>Disponible en semaine et le samedi matin</p>
+                            <a href="#" class="btn btn-outline-primary">Prendre RDV</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Envoyez-nous un message</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Votre nom</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Votre email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Téléphone</label>
+                            <input type="tel" id="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="child-name">Nom de votre enfant (si déjà inscrit)</label>
+                            <input type="text" id="child-name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Votre message</label>
+                            <textarea id="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Envoyer le message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="animate">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>EtudiantsFR</h3>
+                <p>Notre mission est d'accompagner les étudiants internationaux et leurs familles dans leur projet d'études en France, en offrant un service personnalisé et professionnel.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Espace Parents</h3>
+                <a href="#">Guide des parents</a>
+                <a href="#">Financement des études</a>
+                <a href="#">Sécurité et bien-être</a>
+                <a href="#">FAQ Parents</a>
+                <a href="#">Témoignages</a>
+                <a href="#">Contact spécial parents</a>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Informations</h3>
+                <a href="../index.html#tarifs">Nos tarifs</a>
+                <a href="#">Mentions légales</a>
+                <a href="#">Politique de confidentialité</a>
+                <a href="#">CGU</a>
+                <a href="#">Presse</a>
+                <a href="#">Recrutement</a>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Newsletter Parents</h3>
+                <p>Recevez nos conseils et informations pour accompagner votre enfant dans son projet d'études en France.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Votre email" required>
+                    <button type="submit" class="newsletter-btn">S'abonner</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2025 EtudiantsFR. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Menu mobile
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+        const dropdowns = document.querySelectorAll('.dropdown');
+        
+        mobileMenu.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+        
+        dropdowns.forEach(dropdown => {
+            const link = dropdown.querySelector('a');
+            
+            link.addEventListener('click', function(e) {
+                if (window.innerWidth <= 992) {
+                    e.preventDefault();
+                    dropdown.classList.toggle('active');
+                }
+            });
+        });
+        
+        // Animation au défilement
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate');
+            const windowHeight = window.innerHeight;
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementPosition < windowHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+        
+        // FAQ Accordion
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentNode;
+                item.classList.toggle('active');
+                
+                // Fermer les autres items
+                faqQuestions.forEach(q => {
+                    if (q !== question) {
+                        q.parentNode.classList.remove('active');
+                    }
+                });
+            });
+        });
+        
+        // Navigation fluide
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Fermer le menu mobile si ouvert
+                    if (navLinks.classList.contains('active')) {
+                        mobileMenu.classList.remove('active');
+                        navLinks.classList.remove('active');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
