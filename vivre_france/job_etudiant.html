@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobs Étudiants - GPI</title>
+    
+    <!-- Polices Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800;900&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Bibliothèques CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+    
+    <!-- CSS principal avec préchargement -->
+    <link rel="preload" href="../assets/css/job_etudiant.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="../assets/css/job_etudiant.css"></noscript>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <a href="index.html" class="logo">
+            <i class="fas fa-graduation-cap"></i>
+            GPI
+        </a>
+        
+        <ul class="nav-links" id="nav-links">
+            <li><a href="../index.html">Accueil</a></li>
+            <li><a href="../etudiants/etudiants.html">Étudiants</a></li>
+            <li><a href="../parents/parents.html">Parents</a></li>
+            <li><a href="../etudiants/avi.html">Demande de visa</a></li>
+            <li><a href="../vivre_france/assurances.html">Assurances</a></li>
+            <li><a href="../vivre_france/job_etudiant.html" class="active">Jobs Étudiants</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+            <!--li><a href="../connexion/login.html" class="btn btn-primary">Se connecter</a></li-->
+        </ul>
+        
+        <div class="menu-toggle" id="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="job-hero">
+        <div class="container">
+            <h1 data-aos="fade-up">Trouvez le job étudiant idéal</h1>
+            <p data-aos="fade-up" data-aos-delay="200">Découvrez des offres d'emploi adaptées à votre emploi du temps étudiant et complétez vos revenus tout en gagnant de l'expérience professionnelle</p>
+            <a href="#offres" class="btn btn-primary" data-aos="fade-up" data-aos-delay="400">Voir les offres</a>
+        </div>
+    </section>
+
+    <!-- Job Content -->
+    <section class="job-section" id="offres">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Nos dernières offres d'emploi</h2>
+                <p>Des jobs flexibles adaptés à votre rythme universitaire</p>
+            </div>
+            
+            <div class="job-grid">
+                <div class="job-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="job-badge">Nouveau</div>
+                    <div class="job-card-img">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Serveur étudiant">
+                    </div>
+                    <div class="job-card-content">
+                        <h3>Serveur/Serveuse</h3>
+                        <div class="job-location">
+                            <i class="fas fa-map-marker-alt"></i> Paris 5ème
+                        </div>
+                        <div class="job-salary">
+                            <i class="fas fa-euro-sign"></i> 11-13€/h + pourboires
+                        </div>
+                        <p>Nous recherchons un serveur/serveuse dynamique pour notre restaurant étudiant. Horaires flexibles en soirée et week-end. Expérience appréciée mais non requise.</p>
+                        <div class="job-card-footer">
+                            <span class="job-type">Temps partiel</span>
+                            <a href="#" class="btn btn-primary">Postuler</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="job-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="job-card-img">
+                        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Tuteur étudiant">
+                    </div>
+                    <div class="job-card-content">
+                        <h3>Tuteur en Mathématiques</h3>
+                        <div class="job-location">
+                            <i class="fas fa-map-marker-alt"></i> Lyon 2ème
+                        </div>
+                        <div class="job-salary">
+                            <i class="fas fa-euro-sign"></i> 15-20€/h
+                        </div>
+                        <p>Proposez des cours particuliers en mathématiques à des lycéens. Horaires à définir avec les élèves. Niveau licence en mathématiques requis.</p>
+                        <div class="job-card-footer">
+                            <span class="job-type">Flexible</span>
+                            <a href="#" class="btn btn-primary">Postuler</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="job-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="job-badge">Urgent</div>
+                    <div class="job-card-img">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Assistant administratif">
+                    </div>
+                    <div class="job-card-content">
+                        <h3>Assistant Administratif</h3>
+                        <div class="job-location">
+                            <i class="fas fa-map-marker-alt"></i> Toulouse
+                        </div>
+                        <div class="job-salary">
+                            <i class="fas fa-euro-sign"></i> 10-12€/h
+                        </div>
+                        <p>Mission de soutien administratif pour une association étudiante. Gestion de fichiers, accueil téléphonique, organisation d'événements. 15h/semaine.</p>
+                        <div class="job-card-footer">
+                            <span class="job-type">Mi-temps</span>
+                            <a href="#" class="btn btn-primary">Postuler</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container benefits-container">
+            <h2 data-aos="fade-up">Les avantages du travail étudiant</h2>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-euro-sign"></i>
+                    <h3>Revenus complémentaires</h3>
+                    <p>Financez vos études et votre quotidien avec un revenu régulier adapté à vos besoins.</p>
+                </div>
+                
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-briefcase"></i>
+                    <h3>Expérience professionnelle</h3>
+                    <p>Acquérez des compétences valorisantes pour votre futur CV et votre insertion professionnelle.</p>
+                </div>
+                
+                <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-user-friends"></i>
+                    <h3>Réseau professionnel</h3>
+                    <p>Élargissez votre cercle de connaissances et créez des contacts utiles pour votre avenir.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-section">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Comment ça marche ?</h2>
+                <p>Décrochez votre job étudiant en 3 étapes simples</p>
+            </div>
+            
+            <div class="steps-container">
+                <div class="step-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Créez votre profil</h3>
+                        <p>Inscrivez-vous gratuitement et complétez votre profil en indiquant vos disponibilités, compétences et centres d'intérêt.</p>
+                    </div>
+                </div>
+                
+                <div class="step-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Trouvez des offres</h3>
+                        <p>Consultez nos offres d'emploi filtrées selon vos critères ou laissez-nous vous proposer des jobs correspondant à votre profil.</p>
+                    </div>
+                </div>
+                
+                <div class="step-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Postulez en ligne</h3>
+                        <p>Envoyez votre candidature en quelques clics et échangez directement avec les employeurs via notre plateforme sécurisée.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="job-cta">
+        <div class="container">
+            <h2 data-aos="fade-up">Prêt à trouver votre job étudiant ?</h2>
+            <p data-aos="fade-up" data-aos-delay="200">Rejoignez notre plateforme et accédez à des centaines d'offres d'emploi adaptées aux étudiants</p>
+            <div data-aos="fade-up" data-aos-delay="400">
+                <a href="#" class="btn btn-primary">Créer mon compte</a>
+                <a href="#" class="btn" style="background: rgba(255,255,255,0.2); color: white; margin-left: 1rem;">Voir toutes les offres</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>GPI</h3>
+                    <p>Notre mission est d'accompagner les étudiants internationaux dans leur projet d'études en France, avec des services personnalisés et professionnels.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Jobs Étudiants</h3>
+                    <a href="#">Offres d'emploi</a>
+                    <a href="#">Conseils pour trouver un job</a>
+                    <a href="#">Droits des travailleurs étudiants</a>
+                    <a href="#">Témoignages</a>
+                    <a href="#">Employeurs</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Liens rapides</h3>
+                    <a href="index.html">Accueil</a>
+                    <a href="etudiants.html">Étudiants</a>
+                    <a href="parents.html">Parents</a>
+                    <a href="visa.html">Demande de visa</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Abonnez-vous pour recevoir nos conseils et offres exclusives.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Votre email" required>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">S'abonner</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 EtudiantsFR. Tous droits réservés. | <a href="#">Mentions légales</a> | <a href="#">Politique de confidentialité</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        // Initialisation de AOS (Animate On Scroll)
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Menu mobile
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+        
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        mobileMenu.classList.remove('active');
+                    }
+                }
+            });
+        });
+
+        // Form validation for newsletter
+        const newsletterForm = document.querySelector('.newsletter-form');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const emailInput = this.querySelector('input[type="email"]');
+                
+                if (emailInput.value && emailInput.checkValidity()) {
+                    // Here you would typically send the data to your server
+                    alert('Merci pour votre inscription à notre newsletter !');
+                    emailInput.value = '';
+                } else {
+                    alert('Veuillez entrer une adresse email valide.');
+                }
+            });
+        }
+    </script>
+</body>
+</html>

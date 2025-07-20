@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - GPI</title>
+    
+    <!-- Polices Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800;900&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Bibliothèques CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+    
+    <!-- Leaflet CSS (pour la carte) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"/>
+    
+    <!-- FullCalendar CSS (pour le calendrier de RDV) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css">
+
+    <!-- Favicon moderne -->
+    <link rel="icon" href="assets/img/logo.jpg" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/logo/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <!-- CSS principal avec préchargement -->
+    <link rel="preload" href="assets/css/contact.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="assets/css/contact.css"></noscript>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <a href="index.html" class="logo">
+            <i class="fas fa-graduation-cap"></i>
+            GPI
+        </a>
+        
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="etudiants/etudiants.html">Étudiants</a></li>
+            <li><a href="parents/parents.html">Parents</a></li>
+            <li><a href="etudiants/avi.html">Demande de visa</a></li>
+            <li><a href="vivre_france/assurances.html">Assurances</a></li>
+            <li><a href="vivre_france/job_etudiant.html">Jobs Étudiants</a></li>
+            <li><a href="tarifs.html">Tarifs</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+            <!--li><a href="connexion/login.html" class="btn btn-primary">Se connecter</a></li-->
+        </ul>
+        
+        <div class="menu-toggle" id="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="contact-hero">
+        <div class="container">
+            <h1 data-aos="fade-up">Contactez-nous</h1>
+            <p data-aos="fade-up" data-aos-delay="200">Nous sommes là pour répondre à toutes vos questions sur les études en France</p>
+            <a href="#contact" class="btn btn-primary" data-aos="fade-up" data-aos-delay="400">Prendre rendez-vous</a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Comment nous contacter</h2>
+                <p>Plusieurs moyens pour échanger avec notre équipe</p>
+            </div>
+            
+            <div class="contact-grid" data-aos="fade-up" data-aos-delay="100">
+                <div class="contact-info">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Notre adresse</h3>
+                    <p>123 Rue de Paris</p>
+                    <p>75000 Paris, France</p>
+                    <a href="#map">Voir sur la carte →</a>
+                </div>
+                
+                <div class="contact-info">
+                    <i class="fas fa-phone-alt"></i>
+                    <h3>Téléphone</h3>
+                    <a href="tel:+33123456789">+33 1 23 45 67 89</a>
+                    <a href="tel:+33612345678">+33 6 12 34 56 78 (WhatsApp)</a>
+                    <p>Lun-Ven: 9h-18h</p>
+                </div>
+                
+                <div class="contact-info">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <a href="mailto:contact@etudiantsfr.com">contact@etudiantsfr.com</a>
+                    <a href="mailto:admissions@etudiantsfr.com">admissions@etudiantsfr.com</a>
+                    <p>Réponse sous 24h</p>
+                </div>
+            </div>
+            
+            <!-- Map Section -->
+            <div class="map-section" data-aos="fade-up" data-aos-delay="200">
+                <h3 class="section-subtitle" style="text-align: center; margin-bottom: 2rem; font-size: 1.8rem;">Nous trouver</h3>
+                <div id="map"></div>
+            </div>
+            
+            <!-- Appointment Section -->
+            <div class="appointment-section" data-aos="fade-up" data-aos-delay="300">
+                <div class="appointment-container">
+                    <div class="appointment-form">
+                        <h3>Prendre rendez-vous</h3>
+                        <form id="appointment-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">Nom complet</label>
+                                    <input type="text" id="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="phone">Téléphone</label>
+                                    <input type="tel" id="phone" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="service">Service</label>
+                                    <select id="service" required>
+                                        <option value="">Sélectionnez un service</option>
+                                        <option value="admission">Admission en université</option>
+                                        <option value="visa">Demande de visa</option>
+                                        <option value="logement">Recherche de logement</option>
+                                        <option value="assurance">Assurance étudiante</option>
+                                        <option value="autre">Autre demande</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="date">Date souhaitée</label>
+                                <input type="text" id="date" readonly>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Message (optionnel)</label>
+                                <textarea id="message" rows="4"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn">Confirmer le rendez-vous</button>
+                        </form>
+                    </div>
+                    
+                    <div class="calendar-container">
+                        <h3>Disponibilités</h3>
+                        <div id="calendar"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- FAQ Section -->
+            <div class="faq-section">
+                <div class="container">
+                    <div class="section-title" data-aos="fade-up">
+                        <h2>Questions fréquentes</h2>
+                        <p>Retrouvez les réponses aux questions les plus posées</p>
+                    </div>
+                    
+                    <div class="faq-container">
+                        <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+                            <div class="faq-question">
+                                <h4>Quels sont les horaires d'ouverture ?</h4>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Notre bureau est ouvert du lundi au vendredi de 9h à 18h. Les rendez-vous en ligne sont disponibles certains samedis matin sur demande.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+                            <div class="faq-question">
+                                <h4>Puis-je annuler ou modifier mon rendez-vous ?</h4>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Oui, vous pouvez modifier ou annuler votre rendez-vous jusqu'à 24h avant la date prévue. Un lien de modification est inclus dans l'email de confirmation.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+                            <div class="faq-question">
+                                <h4>Les consultations sont-elles payantes ?</h4>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>La première consultation est toujours gratuite. Pour les suivantes, cela dépend du service demandé. Consultez notre page <a href="tarifs.html">Tarifs</a> pour plus d'informations.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Groupe Projet International</h3>
+                    <p>Votre partenaire pour réussir vos études en France. Nous accompagnons les étudiants internationaux à chaque étape de leur projet.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Liens rapides</h3>
+                    <a href="index.html">Accueil</a>
+                    <a href="etudiants.html">Étudiants</a>
+                    <a href="parents.html">Parents</a>
+                    <a href="visa.html">Demande de visa</a>
+                    <a href="assurances.html">Assurances</a>
+                    <a href="jobs.html">Jobs Étudiants</a>
+                    <a href="tarifs.html">Tarifs</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> 123 Rue de Paris, 75000 France</p>
+                    <p><i class="fas fa-phone" style="margin-right: 10px;"></i> +33 1 23 45 67 89</p>
+                    <p><i class="fas fa-envelope" style="margin-right: 10px;"></i> contact@etudiantsfr.com</p>
+                    <p><i class="fas fa-clock" style="margin-right: 10px;"></i> Lun-Ven: 9h-18h</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Abonnez-vous à notre newsletter pour recevoir nos conseils et offres spéciales.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Votre email">
+                        <button type="submit" class="btn btn-primary">S'abonner</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 EtudiantsFR. Tous droits réservés. | <a href="#" style="color: rgba(255,255,255,0.8);">Politique de confidentialité</a> | <a href="#" style="color: rgba(255,255,255,0.8);">Conditions générales</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <!-- Leaflet JS (pour la carte) -->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <!-- FullCalendar JS (pour le calendrier de RDV) -->
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/locales/fr.min.js"></script>
+    
+    <script>
+        // Animation On Scroll
+        AOS.init({
+            duration: 800,
+            once: true,
+            easing: 'ease-in-out'
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+        
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                item.classList.toggle('active');
+                
+                // Close other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+            });
+        });
+
+        // Initialize Map
+        const map = L.map('map').setView([48.8566, 2.3522], 15); // Coordonnées de Paris
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Add marker
+        L.marker([48.8566, 2.3522]).addTo(map)
+            .bindPopup('EtudiantsFR<br>123 Rue de Paris')
+            .openPopup();
+
+        // Initialize Calendar
+        document.addEventListener('DOMContentLoaded', function() {
+            const calendarEl = document.getElementById('calendar');
+            const calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                locale: 'fr',
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                },
+                selectable: true,
+                select: function(info) {
+                    // Set selected date in form
+                    document.getElementById('date').value = info.startStr;
+                    
+                    // Change view to day to show available slots
+                    calendar.changeView('timeGridDay', info.startStr);
+                },
+                events: [
+                    {
+                        title: 'Disponible',
+                        start: new Date().toISOString().split('T')[0] + 'T09:00:00',
+                        end: new Date().toISOString().split('T')[0] + 'T10:00:00'
+                    },
+                    {
+                        title: 'Disponible',
+                        start: new Date().toISOString().split('T')[0] + 'T11:00:00',
+                        end: new Date().toISOString().split('T')[0] + 'T12:00:00'
+                    },
+                    {
+                        title: 'Disponible',
+                        start: new Date().toISOString().split('T')[0] + 'T14:00:00',
+                        end: new Date().toISOString().split('T')[0] + 'T15:00:00'
+                    }
+                ],
+                eventClick: function(info) {
+                    // Set selected time in form
+                    const startTime = info.event.start.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+                    const endTime = info.event.end.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+                    document.getElementById('date').value = info.event.start.toISOString().split('T')[0] + ' ' + startTime + '-' + endTime;
+                }
+            });
+            calendar.render();
+        });
+
+        // Form Submission
+        const appointmentForm = document.getElementById('appointment-form');
+        appointmentForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const date = document.getElementById('date').value;
+            
+            // Show confirmation
+            alert(`Merci ${name}, votre rendez-vous pour le ${date} a bien été enregistré. Vous allez recevoir un email de confirmation.`);
+            
+            // Reset form
+            appointmentForm.reset();
+        });
+    </script>
+</body>
+</html>

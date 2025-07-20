@@ -1,11 +1,15 @@
 :root {
-    --primary: #2c3e50;
-    --secondary: #e74c3c;
-    --accent:rgb(52, 96, 219);
-    --light: #ecf0f1;
-    --dark: #2c3e50;
-    --gradient-primary: linear-gradient(135deg, #3498db, #2c3e50);
-    --gradient-secondary: linear-gradient(135deg, #e74c3c, #c0392b);
+    --primary: #3a86ff;
+    --secondary: #8338ec;
+    --accent:rgb(255, 0, 43);;
+    --light: #f8f9fa;
+    --dark:rgb(37, 33, 41);
+    --gradient-primary: linear-gradient(135deg, var(--primary), var(--secondary));
+    --gradient-secondary: linear-gradient(135deg,rgb(60, 77, 231),rgb(45, 43, 192));
+    --gradient-accent: linear-gradient(135deg, var(--accent),rgb(146, 21, 12));
+    --gradient-light: linear-gradient(135deg, #f5f7fa, #e4e8eb);
+    --gradient-dark: linear-gradient(135deg,rgb(55, 75, 141),rgb(97, 10, 148));
+    --gradient-gold: linear-gradient(135deg,rgb(15, 241, 34),rgb(18, 243, 104));
 }
 
 * {
@@ -178,9 +182,10 @@ header {
 }
 
 .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1.5rem;
-    animation: fadeInUp 1s ease;
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin-bottom: 2rem;
+    animation: fadeInUp 1s ease 0.2s both;
 }
 
 .hero p {

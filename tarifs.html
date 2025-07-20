@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarifs - GPI</title>
+    
+    <!-- Polices Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800;900&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Bibliothèques CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+
+    <!-- Favicon moderne -->
+    <link rel="icon" href="assets/img/logo.jpg" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/logo/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <!-- CSS principal avec préchargement -->
+    <link rel="preload" href="assets/css/tarifs.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="assets/css/tarifs.css"></noscript>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <a href="index.html" class="logo">
+            <i class="fas fa-graduation-cap"></i>
+            GPI
+        </a>
+        
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="etudiants/etudiants.html">Étudiants</a></li>
+            <li><a href="parents/parents.html">Parents</a></li>
+            <li><a href="etudiants/avi.html">Demande de visa</a></li>
+            <li><a href="vivre_france/assurances.html">Assurances</a></li>
+            <li><a href="vivre_france/job_etudiant.html">Jobs Étudiants</a></li>
+            <li><a href="tarifs.html" class="active">Tarifs</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <!--li><a href="connexion/login.html" class="btn btn-primary">Connexion</a></li-->
+        </ul>
+        
+        <div class="menu-toggle" id="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pricing-hero">
+        <div class="container">
+            <h1 data-aos="fade-up">Nos offres tarifaires</h1>
+            <p data-aos="fade-up" data-aos-delay="200">Choisissez la formule qui correspond à vos besoins et démarrez votre projet d'études en France</p>
+            <a href="#offres" class="btn btn-primary" data-aos="fade-up" data-aos-delay="400">Voir les offres</a>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section" id="offres">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Nos formules d'accompagnement</h2>
+                <p>Des solutions adaptées à chaque étape de votre projet</p>
+            </div>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="pricing-card-header">
+                        <h3>Essentiel</h3>
+                        <div class="price">49€</div>
+                        <div class="period">par mois</div>
+                    </div>
+                    <div class="pricing-card-body">
+                        <ul class="pricing-features">
+                            <li>Accès à la plateforme d'information</li>
+                            <li>Guide complet des démarches</li>
+                            <li>Liste des documents requis</li>
+                            <li>Espace membre personnel</li>
+                            <li class="disabled">Accompagnement personnalisé</li>
+                            <li class="disabled">Relance des administrations</li>
+                            <li class="disabled">Service premium 24/7</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary" style="width: 100%;">Choisir cette offre</a>
+                    </div>
+                </div>
+                
+                <div class="pricing-card popular" data-aos="fade-up" data-aos-delay="200">
+                    <div class="popular-badge">Le plus populaire</div>
+                    <div class="pricing-card-header">
+                        <h3>Complet</h3>
+                        <div class="price">99€</div>
+                        <div class="period">par mois</div>
+                    </div>
+                    <div class="pricing-card-body">
+                        <ul class="pricing-features">
+                            <li>Tous les avantages Essentiel</li>
+                            <li>Accompagnement par un expert</li>
+                            <li>Vérification de votre dossier</li>
+                            <li>Simulation d'entretien visa</li>
+                            <li>Aide à la recherche de logement</li>
+                            <li class="disabled">Service premium 24/7</li>
+                            <li class="disabled">Conseiller dédié</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary" style="width: 100%;">Choisir cette offre</a>
+                    </div>
+                </div>
+                
+                <div class="pricing-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="pricing-card-header">
+                        <h3>Premium</h3>
+                        <div class="price">199€</div>
+                        <div class="period">par mois</div>
+                    </div>
+                    <div class="pricing-card-body">
+                        <ul class="pricing-features">
+                            <li>Tous les avantages Complet</li>
+                            <li>Conseiller dédié 24/7</li>
+                            <li>Accompagnement VIP</li>
+                            <li>Service de traduction</li>
+                            <li>Assurance voyage incluse</li>
+                            <li>Simulation d'entretien premium</li>
+                            <li>Accès aux événements exclusifs</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary" style="width: 100%;">Choisir cette offre</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Section -->
+            <div class="payment-section" data-aos="fade-up" data-aos-delay="400">
+                <h3>Méthodes de paiement</h3>
+                <p style="text-align: center; color: #666; margin-bottom: 2rem;">Choisissez votre mode de paiement préféré</p>
+                
+                <div class="payment-methods">
+                    <div class="payment-method selected" data-method="card">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <h4>Carte bancaire</h4>
+                        <p>Paiement sécurisé par carte Visa ou Mastercard</p>
+                    </div>
+                    
+                    <div class="payment-method" data-method="paypal">
+                        <i class="fab fa-paypal"></i>
+                        <h4>PayPal</h4>
+                        <p>Paiement via votre compte PayPal</p>
+                    </div>
+                    
+                    <div class="payment-method" data-method="airtel">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h4>Airtel Money</h4>
+                        <p>Paiement mobile via Airtel Money</p>
+                    </div>
+                    
+                    <div class="payment-method" data-method="mtn">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h4>MTN Mobile Money</h4>
+                        <p>Paiement mobile via MTN</p>
+                    </div>
+                </div>
+                
+                <!-- Card Payment Form -->
+                <div class="payment-form active" id="card-form">
+                    <form id="card-payment">
+                        <div class="form-group">
+                            <label for="card-number">Numéro de carte</label>
+                            <input type="text" id="card-number" placeholder="1234 5678 9012 3456" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="card-name">Nom sur la carte</label>
+                            <input type="text" id="card-name" placeholder="Jean DUPONT" required>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="card-expiry">Date d'expiration</label>
+                                <input type="text" id="card-expiry" placeholder="MM/AA" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="card-cvc">Code CVC</label>
+                                <input type="text" id="card-cvc" placeholder="123" required>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Payer maintenant</button>
+                    </form>
+                </div>
+                
+                <!-- PayPal Payment Form -->
+                <div class="payment-form" id="paypal-form">
+                    <div style="text-align: center; padding: 2rem;">
+                        <i class="fab fa-paypal" style="font-size: 4rem; color: #003087; margin-bottom: 1.5rem;"></i>
+                        <p>Vous serez redirigé vers PayPal pour compléter votre paiement de manière sécurisée.</p>
+                        <button class="submit-btn" style="max-width: 300px; margin: 2rem auto 0;">
+                            Payer avec PayPal
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Airtel Money Payment Form -->
+                <div class="payment-form" id="airtel-form">
+                    <form id="airtel-payment">
+                        <div class="form-group">
+                            <label for="airtel-number">Numéro Airtel Money</label>
+                            <input type="text" id="airtel-number" placeholder="Ex: 06 12 34 56 78" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <p style="color: #666; font-size: 0.9rem; margin-top: -0.5rem;">Vous recevrez une demande de paiement sur votre mobile</p>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Payer avec Airtel Money</button>
+                    </form>
+                </div>
+                
+                <!-- MTN Mobile Money Payment Form -->
+                <div class="payment-form" id="mtn-form">
+                    <form id="mtn-payment">
+                        <div class="form-group">
+                            <label for="mtn-number">Numéro MTN Mobile Money</label>
+                            <input type="text" id="mtn-number" placeholder="Ex: 06 12 34 56 78" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <p style="color: #666; font-size: 0.9rem; margin-top: -0.5rem;">Vous recevrez une demande de paiement sur votre mobile</p>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Payer avec MTN Mobile Money</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Questions fréquentes</h2>
+                <p>Trouvez des réponses à vos questions sur nos tarifs et paiements</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="faq-question">
+                        <h4>Puis-je changer de formule en cours d'abonnement ?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Oui, vous pouvez à tout moment passer à une formule supérieure ou inférieure. Le changement prend effet immédiatement et le montant de votre abonnement sera ajusté au prorata temporis.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="faq-question">
+                        <h4>Comment annuler mon abonnement ?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Vous pouvez annuler votre abonnement à tout moment depuis votre espace personnel. L'annulation prend effet à la fin de la période en cours et aucun remboursement n'est effectué pour la période déjà payée.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="faq-question">
+                        <h4>Est-ce que mes données de paiement sont sécurisées ?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolument. Nous utilisons le chiffrement SSL et ne stockons jamais vos informations de paiement directement sur nos serveurs. Les transactions sont traitées par des prestataires de paiement certifiés PCI DSS.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
+                    <div class="faq-question">
+                        <h4>Que se passe-t-il si mon paiement échoue ?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>En cas d'échec de paiement, nous vous enverrons une notification par email et SMS. Vous aurez 7 jours pour régulariser la situation avant que votre accès ne soit temporairement suspendu.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Groupe Projet International</h3>
+                    <p>Votre partenaire pour réussir vos études en France. Nous accompagnons les étudiants internationaux à chaque étape de leur projet.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Liens rapides</h3>
+                    <a href="index.html">Accueil</a>
+                    <a href="etudiants.html">Étudiants</a>
+                    <a href="parents.html">Parents</a>
+                    <a href="visa.html">Demande de visa</a>
+                    <a href="assurances.html">Assurances</a>
+                    <a href="jobs.html">Jobs Étudiants</a>
+                    <a href="tarifs.html">Tarifs</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> 123 Rue de Paris, 75000 France</p>
+                    <p><i class="fas fa-phone" style="margin-right: 10px;"></i> +33 1 23 45 67 89</p>
+                    <p><i class="fas fa-envelope" style="margin-right: 10px;"></i> contact@etudiantsfr.com</p>
+                    <p><i class="fas fa-clock" style="margin-right: 10px;"></i> Lun-Ven: 9h-18h</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Abonnez-vous à notre newsletter pour recevoir nos conseils et offres spéciales.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Votre email">
+                        <button type="submit" class="btn btn-primary">S'abonner</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 EtudiantsFR. Tous droits réservés. | <a href="#" style="color: rgba(255,255,255,0.8);">Politique de confidentialité</a> | <a href="#" style="color: rgba(255,255,255,0.8);">Conditions générales</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        // Animation On Scroll
+        AOS.init({
+            duration: 800,
+            once: true,
+            easing: 'ease-in-out'
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+        
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                item.classList.toggle('active');
+                
+                // Close other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+            });
+        });
+
+        // Payment Method Selection
+        const paymentMethods = document.querySelectorAll('.payment-method');
+        const paymentForms = document.querySelectorAll('.payment-form');
+        
+        paymentMethods.forEach(method => {
+            method.addEventListener('click', () => {
+                // Remove selected class from all methods
+                paymentMethods.forEach(m => m.classList.remove('selected'));
+                
+                // Add selected class to clicked method
+                method.classList.add('selected');
+                
+                // Get the method type
+                const methodType = method.getAttribute('data-method');
+                
+                // Hide all forms
+                paymentForms.forEach(form => form.classList.remove('active'));
+                
+                // Show the selected form
+                document.getElementById(`${methodType}-form`).classList.add('active');
+            });
+        });
+
+        // Form Submission
+        const forms = document.querySelectorAll('form');
+        forms.forEach(form => {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Paiement simulé avec succès! En production, cette action enverrait les données au serveur.');
+            });
+        });
+    </script>
+</body>
+</html>

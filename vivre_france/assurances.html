@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parents - GPI</title>
+    <title>Assurances Étudiants - GPI</title>
     
     <!-- Polices Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,22 +14,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Bibliothèques CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
-
-    <!-- Favicon moderne -->
-    <link rel="icon" href="../assets/img/logo.jpg" type="image/x-icon">
-    <link rel="apple-touch-icon" href="images/logo/apple-touch-icon.png">
-    <link rel="manifest" href="site.webmanifest">
-
+    
     <!-- CSS principal avec préchargement -->
-    <link rel="preload" href="../assets/css/parents.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="../assets/css/parents.css"></noscript>
+    <link rel="preload" href="../assets/css/assurances.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="../assets/css/assurances.css"></noscript>
 </head>
 <body>
     <!-- Navbar -->
     <nav class="navbar" id="navbar">
-        <a href="../index.html" class="logo">
+        <a href="index.html" class="logo">
             <i class="fas fa-graduation-cap"></i>
             GPI
         </a>
@@ -37,10 +31,12 @@
         <ul class="nav-links" id="nav-links">
             <li><a href="../index.html">Accueil</a></li>
             <li><a href="../etudiants/etudiants.html">Étudiants</a></li>
-            <li><a href="parents.html" class="active">Parents</a></li>
+            <li><a href="../parents/parents.html">Parents</a></li>
             <li><a href="../etudiants/avi.html">Demande de visa</a></li>
+            <li><a href="../vivre_france/assurances.html"  class="active">Assurances</a></li>
+            <li><a href="../vivre_france/job_etudiant.html">Jobs Étudiants</a></li>
             <li><a href="../contact.html">Contact</a></li>
-            <li><a href="/connexion/login.html" class="btn btn-primary">Connexion</a></li>
+            <!--li><a href="../connexion/login.html" class="btn btn-primary">Se connecter</a></li-->
         </ul>
         
         <div class="menu-toggle" id="mobile-menu">
@@ -51,91 +47,94 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="parents-hero">
+    <section class="assurance-hero">
         <div class="container">
-            <h1 data-aos="fade-up">Accompagnez votre enfant dans ses études en France</h1>
-            <p data-aos="fade-up" data-aos-delay="200">Nous comprenons que l'avenir de votre enfant est votre priorité. Notre rôle est de vous fournir toutes les informations nécessaires pour un accompagnement en toute sérénité.</p>
-            <a href="#accompagnement" class="btn btn-primary" data-aos="fade-up" data-aos-delay="400">Découvrir nos services</a>
+            <h1 data-aos="fade-up">Assurances étudiantes</h1>
+            <p data-aos="fade-up" data-aos-delay="200">Protégez votre logement et facilitez votre recherche avec nos solutions d'assurance adaptées aux étudiants internationaux</p>
+            <a href="#garant" class="btn btn-primary" data-aos="fade-up" data-aos-delay="400">Découvrir nos solutions</a>
         </div>
     </section>
 
-    <!-- Parents Content -->
-    <section class="parents-section">
+    <!-- Assurance Content -->
+    <section class="assurance-section">
         <div class="container">
             <div class="section-title" data-aos="fade-up">
-                <h2>Comment nous accompagnons les parents</h2>
-                <p>Toutes les ressources pour soutenir votre enfant dans son projet d'études en France</p>
+                <h2>Nos solutions d'assurance</h2>
+                <p>Des garanties adaptées aux besoins des étudiants internationaux</p>
             </div>
             
-            <div class="parents-grid">
-                <div class="parents-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="parents-card-img">
-                        <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Accompagner votre enfant">
+            <div class="assurance-grid">
+                <div class="assurance-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="assurance-card-img">
+                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1473&q=80" alt="Garant et MRH">
                     </div>
-                    <div class="parents-card-content">
-                        <h3>Accompagner votre enfant</h3>
-                        <p>Nous comprenons que l'avenir de votre enfant est votre priorité. L'envoyer étudier à l'étranger est une décision importante qui nécessite une préparation minutieuse. Notre rôle est de vous fournir toutes les informations nécessaires pour que vous puissiez accompagner votre enfant en toute sérénité dans ce projet d'études en France.</p>
-                        <a href="#" class="btn btn-primary">En savoir plus</a>
-                    </div>
-                </div>
-                
-                <div class="parents-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="parents-card-img">
-                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Financement des études">
-                    </div>
-                    <div class="parents-card-content">
-                        <h3>Financement des études</h3>
-                        <p>Le coût des études en France varie selon les établissements et les filières. Nous vous présentons les différentes options de financement disponibles : bourses, jobs étudiants, comptes bancaires bloqués et autres solutions financières pour sécuriser le parcours de votre enfant.</p>
-                        <a href="#" class="btn btn-primary">Découvrir</a>
+                    <div class="assurance-card-content">
+                        <h3>Garant & MRH</h3>
+                        <p>Le garant rassure le propriétaire et renforce votre dossier de demande de logement. L'assurance habitation (MRH) est obligatoire pour tous les locataires.</p>
+                        <p><strong>Besoin d'un garant?</strong> Accompagnement, gain de temps et tranquillité d'esprit : partenaire de confiance, Garantme nous donne les moyens de nous libérer des tâches à faible valeur ajoutée pour nous concentrer sur le cœur de notre métier : libérer l'accès au logement, tout simplement.</p>
+                        <div class="assurance-card-footer">
+                            <a href="#" class="btn btn-outline">En savoir plus <i class="fas fa-arrow-right"></i></a>
+                            <a href="#" class="btn btn-primary">Postuler</a>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="parents-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="parents-card-img">
-                        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Sécurité et bien-être">
+                <div class="assurance-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="assurance-card-img">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Assurance habitation">
                     </div>
-                    <div class="parents-card-content">
-                        <h3>Sécurité et bien-être</h3>
-                        <p>La sécurité et le bien-être de votre enfant sont nos priorités. Nous vous expliquons les dispositifs en place : assurance santé obligatoire, hébergements sécurisés, services d'urgence, accompagnement psychologique et toutes les mesures qui garantissent un environnement sûr pour les étudiants internationaux.</p>
-                        <a href="#" class="btn btn-primary">En savoir plus</a>
+                    <div class="assurance-card-content">
+                        <h3>Assurance habitation</h3>
+                        <p>Néo-assurance habitation n°1 en Europe et allié de qualité, Luko a pensé la maison comme un écosystème. Nos clients ont besoin de plus qu'une assurance habitation. Ils veulent un compagnon de confiance qui prenne soin de leur foyer pour se concentrer sur leur vie.</p>
+                        <div class="assurance-card-footer">
+                            <a href="#" class="btn btn-outline">En savoir plus <i class="fas fa-arrow-right"></i></a>
+                            <a href="#" class="btn btn-primary">Souscrire</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Assurance Section -->
-    <section class="assurance-section">
-        <div class="container assurance-container">
-            <h2 data-aos="fade-up">Notre engagement envers les parents</h2>
+    <!-- Why Section -->
+    <section class="why-assurance">
+        <div class="container why-container">
+            <h2 data-aos="fade-up">Pourquoi choisir nos solutions d'assurance ?</h2>
             
-            <div class="assurance-content" data-aos="fade-up" data-aos-delay="200">
-                <h3>Transparence et confiance</h3>
-                <p>Nous savons à quel point il peut être stressant de voir son enfant partir étudier à l'étranger. C'est pourquoi nous nous engageons à vous fournir toutes les informations nécessaires pour prendre les bonnes décisions et suivre le parcours de votre enfant en toute transparence.</p>
+            <div class="why-content" data-aos="fade-up" data-aos-delay="200">
+                <h3>Des solutions conçues pour les étudiants</h3>
+                <p>Nous avons sélectionné et négocié des solutions d'assurance spécialement adaptées aux besoins et au budget des étudiants internationaux. Nos partenaires assureurs comprennent les particularités de votre situation et vous proposent des garanties adaptées.</p>
                 
-                <ul class="assurance-list">
-                    <li>Accès à un espace parent dédié avec suivi en temps réel</li>
-                    <li>Contacts directs avec nos conseillers spécialisés</li>
-                    <li>Rapports réguliers sur l'adaptation de votre enfant</li>
-                    <li>Assistance 24/7 en cas d'urgence</li>
-                    <li>Ateliers et webinaires pour les parents</li>
+                <ul style="list-style: none; margin-top: 2rem;">
+                    <li style="margin-bottom: 1.5rem; position: relative; padding-left: 40px;">
+                        <i class="fas fa-check-circle" style="color: white; position: absolute; left: 0; top: 3px; font-size: 1.5rem;"></i>
+                        <strong>Tarifs étudiants</strong> - Des prix adaptés à votre budget
+                    </li>
+                    <li style="margin-bottom: 1.5rem; position: relative; padding-left: 40px;">
+                        <i class="fas fa-check-circle" style="color: white; position: absolute; left: 0; top: 3px; font-size: 1.5rem;"></i>
+                        <strong>Démarches simplifiées</strong> - Souscription en ligne rapide et sécurisée
+                    </li>
+                    <li style="margin-bottom: 1.5rem; position: relative; padding-left: 40px;">
+                        <i class="fas fa-check-circle" style="color: white; position: absolute; left: 0; top: 3px; font-size: 1.5rem;"></i>
+                        <strong>Assistance multilingue</strong> - Service client disponible dans votre langue
+                    </li>
+                    <li style="position: relative; padding-left: 40px;">
+                        <i class="fas fa-check-circle" style="color: white; position: absolute; left: 0; top: 3px; font-size: 1.5rem;"></i>
+                        <strong>Garanties essentielles</strong> - Couverture adaptée à vos besoins réels
+                    </li>
                 </ul>
-            </div>
-            
-            <div style="text-align: center; margin-top: 3rem;" data-aos="fade-up" data-aos-delay="400">
-                <a href="#" class="btn btn-primary">Accéder à l'espace parents</a>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="parents-cta">
+    <section class="assurance-cta">
         <div class="container">
-            <h2 data-aos="fade-up">Vous avez des questions ?</h2>
-            <p data-aos="fade-up" data-aos-delay="200">Notre équipe d'experts est disponible pour répondre à toutes vos interrogations et vous accompagner dans le projet d'études de votre enfant en France.</p>
+            <h2 data-aos="fade-up">Besoin d'aide pour choisir ?</h2>
+            <p data-aos="fade-up" data-aos-delay="200">Nos conseillers sont disponibles pour vous aider à sélectionner la solution d'assurance la plus adaptée à votre situation.</p>
             <div data-aos="fade-up" data-aos-delay="400">
                 <a href="contact.html" class="btn btn-primary">Nous contacter</a>
-                <a href="#" class="btn" style="background: rgba(255,255,255,0.2); color: white; margin-left: 1rem;">Prendre rendez-vous</a>
+                <a href="#" class="btn" style="background: rgba(255,255,255,0.2); color: white; margin-left: 1rem;">FAQ Assurances</a>
             </div>
         </div>
     </section>
@@ -145,8 +144,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>Groupe Projet International</h3>
-                    <p>Notre mission est d'accompagner les étudiants internationaux et leurs parents dans leur projet d'études en France, avec des services personnalisés et professionnels.</p>
+                    <h3>GPI</h3>
+                    <p>Notre mission est d'accompagner les étudiants internationaux dans leur projet d'études en France, avec des services personnalisés et professionnels.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -156,12 +155,12 @@
                 </div>
                 
                 <div class="footer-column">
-                    <h3>Services pour parents</h3>
-                    <a href="#">Accompagnement personnalisé</a>
-                    <a href="#">Financement des études</a>
-                    <a href="#">Sécurité et bien-être</a>
-                    <a href="#">Espace parent dédié</a>
-                    <a href="#">Ateliers pour parents</a>
+                    <h3>Assurances</h3>
+                    <a href="#">Garant locatif</a>
+                    <a href="#">Assurance habitation</a>
+                    <a href="#">Assurance santé</a>
+                    <a href="#">Assurance responsabilité civile</a>
+                    <a href="#">Comparateur d'assurances</a>
                 </div>
                 
                 <div class="footer-column">
@@ -190,7 +189,6 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         // Initialisation de AOS (Animate On Scroll)

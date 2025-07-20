@@ -3,484 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formations - EtudiantsFR</title>
+    <title>Formations - GPI</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Favicon moderne -->
+    <link rel="icon" href="../assets/img/logo.jpg" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/logo/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <!-- CSS principal avec préchargement -->
+    <link rel="preload" href="../assets/css/formations.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="../assets/css/formations.css"></noscript>
     <style>
-        :root {
-            --primary: #2c3e50;
-            --secondary: #e74c3c;
-            --accent: #3498db;
-            --light: #ecf0f1;
-            --dark: #2c3e50;
-            --gradient-primary: linear-gradient(135deg, #3498db, #2c3e50);
-            --gradient-secondary: linear-gradient(135deg, #e74c3c, #c0392b);
-        }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f9f9f9;
-            color: #333;
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
-        
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
-        }
-        
-        /* Header */
-        header {
-            background: var(--gradient-primary);
-            color: white;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        .header-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: white;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo i {
-            margin-right: 12px;
-            color: var(--accent);
-            font-size: 2rem;
-        }
-        
-        /* Navbar */
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-links li {
-            position: relative;
-            margin-left: 1.5rem;
-        }
-        
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            padding: 0.6rem 1rem;
-            display: block;
-            transition: all 0.3s ease;
-            border-radius: 4px;
-            font-weight: 500;
-        }
-        
-        .nav-links a:hover, .nav-links a.active {
-            background-color: rgba(255, 255, 255, 0.15);
-        }
-        
-        .login-btn {
-            background: var(--gradient-secondary);
-            border-radius: 6px;
-            padding: 0.7rem 1.5rem;
-            margin-left: 1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
-        }
-        
-        .login-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: var(--gradient-primary);
-            color: white;
-            padding: 5rem 0;
-            text-align: center;
-            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
-            margin-bottom: 3rem;
-        }
-        
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-            opacity: 0.9;
-        }
-        
-        .search-bar {
-            max-width: 700px;
-            margin: 2rem auto 0;
-            display: flex;
-            background: white;
-            border-radius: 50px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-        
-        .search-bar input {
-            flex: 1;
-            padding: 1.2rem 1.5rem;
-            border: none;
-            font-size: 1rem;
-            outline: none;
-        }
-        
-        .search-bar button {
-            padding: 0 2rem;
-            background: var(--secondary);
-            color: white;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .search-bar button:hover {
-            background: #c0392b;
-        }
-        
-        /* Formations Section */
-        .formations-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem 4rem;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--dark);
-            position: relative;
-            display: inline-block;
-            padding-bottom: 10px;
-        }
-        
-        .section-title h2:after {
-            content: '';
-            position: absolute;
-            width: 80px;
-            height: 4px;
-            background: var(--gradient-primary);
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 2px;
-        }
-        
-        .filters {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-        
-        .filter-btn {
-            padding: 0.6rem 1.5rem;
-            background: white;
-            border: 1px solid #ddd;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .filter-btn:hover, .filter-btn.active {
-            background: var(--accent);
-            color: white;
-            border-color: var(--accent);
-        }
-        
-        .formations-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-        
-        .formation-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-        }
-        
-        .formation-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-        }
-        
-        .formation-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: var(--gradient-secondary);
-            color: white;
-            padding: 0.3rem 1rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            z-index: 1;
-        }
-        
-        .formation-image {
-            height: 200px;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .formation-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.8s ease;
-        }
-        
-        .formation-card:hover .formation-image img {
-            transform: scale(1.1);
-        }
-        
-        .formation-content {
-            padding: 1.5rem;
-        }
-        
-        .formation-title {
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
-            color: var(--dark);
-        }
-        
-        .formation-school {
-            color: var(--accent);
-            font-weight: 500;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-        }
-        
-        .formation-school i {
-            margin-right: 8px;
-        }
-        
-        .formation-details {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 1.5rem;
-            color: #666;
-            font-size: 0.9rem;
-        }
-        
-        .formation-detail {
-            display: flex;
-            align-items: center;
-        }
-        
-        .formation-detail i {
-            margin-right: 5px;
-            color: var(--accent);
-        }
-        
-        .formation-description {
-            margin-bottom: 1.5rem;
-            color: #555;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-        
-        .formation-actions {
-            display: flex;
-            justify-content: space-between;
-        }
-        
-        .btn {
-            padding: 0.8rem 1.5rem;
-            border-radius: 6px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-primary {
-            background: var(--gradient-primary);
-            color: white;
-            border: none;
-            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4);
-        }
-        
-        .btn-outline {
-            background: none;
-            border: 1px solid var(--accent);
-            color: var(--accent);
-        }
-        
-        .btn-outline:hover {
-            background: rgba(52, 152, 219, 0.1);
-        }
-        
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: 4rem 0 2rem;
-        }
-        
-        .footer-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-        }
-        
-        .footer-column h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            padding-bottom: 10px;
-        }
-        
-        .footer-column h3:after {
-            content: '';
-            position: absolute;
-            width: 50px;
-            height: 3px;
-            background: var(--secondary);
-            bottom: 0;
-            left: 0;
-        }
-        
-        .footer-column p, .footer-column a {
-            margin-bottom: 1rem;
-            display: block;
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        .footer-column a:hover {
-            color: white;
-            padding-left: 5px;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-        
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            transition: all 0.3s ease;
-        }
-        
-        .social-links a:hover {
-            background: var(--secondary);
-            transform: translateY(-3px);
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 3rem;
-            margin-top: 3rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.7);
-        }
-        
-        /* Responsive */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .hero {
-                padding: 4rem 0;
-                clip-path: none;
-            }
-            
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .search-bar {
-                flex-direction: column;
-                border-radius: 10px;
-            }
-            
-            .search-bar input, .search-bar button {
-                width: 100%;
-                border-radius: 0;
-                padding: 1rem;
-            }
-            
-            .formations-grid {
-                grid-template-columns: 1fr;
-            }
-        }
     </style>
 </head>
 <body>
     <!-- Header avec Navbar -->
     <header>
         <div class="header-container">
-            <a href="#" class="logo">
+            <a href="../index.html" class="logo">
                 <i class="fas fa-graduation-cap"></i>
-                EtudiantsFR
+                GPI
             </a>
             
             <ul class="nav-links">
-                <li><a href="#">Accueil</a></li>
-                <li><a href="#" class="active">Formations</a></li>
-                <li><a href="#">Hébergement</a></li>
-                <li><a href="#">Visa</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#" class="login-btn">Se connecter</a></li>
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="../etudiants/formations.html" class="active">Formations</a></li>
+                <li><a href="../etudiants/offre_hebergement.html">Hébergement</a></li>
+                <li><a href="../etudiants/avi.html">Visa</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+                <li><a href="../connexion/login.html" class="login-btn">Connexion</a></li>
             </ul>
         </div>
     </header>
@@ -489,11 +43,6 @@
     <section class="hero">
         <h1>Trouvez la formation parfaite en France</h1>
         <p>Découvrez plus de 10 000 formations dans les meilleures universités et écoles françaises</p>
-        
-        <div class="search-bar">
-            <input type="text" placeholder="Rechercher une formation, une université...">
-            <button><i class="fas fa-search"></i></button>
-        </div>
     </section>
     
     <!-- Formations Section -->
@@ -501,6 +50,14 @@
         <div class="section-title">
             <h2>Nos Formations</h2>
         </div>
+
+        <div class="search-bar">
+            <input type="text" placeholder="Rechercher une formation, une université...">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+
+        <br>
+        <br>
         
         <div class="filters">
             <button class="filter-btn active">Toutes</button>
@@ -903,7 +460,7 @@
     <footer>
         <div class="footer-container">
             <div class="footer-column">
-                <h3>EtudiantsFR</h3>
+                <h3>Groupe Projet International</h3>
                 <p>Accompagnement complet pour les étudiants internationaux souhaitant étudier en France.</p>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>

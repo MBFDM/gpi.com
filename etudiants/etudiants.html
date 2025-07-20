@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Espace Étudiants - EtudiantsFR</title>
+    <title>Espace Étudiants - GPI</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
     <!-- Préchargement des ressources critiques -->
@@ -19,20 +19,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" media="print" onload="this.media='all'">
     
     <!-- Favicon moderne -->
-    <link rel="icon" href="images/logo/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../assets/img/logo.jpg" type="image/x-icon">
     <link rel="apple-touch-icon" href="images/logo/apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
     
     <!-- CSS principal avec préchargement -->
-    <link rel="preload" href="../assets/css/style_1.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="../assets/css/style_1.css"></noscript>
+    <link rel="preload" href="../assets/css/etudiants.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="../assets/css/etudiants.css"></noscript>
 </head>
 <body>
     <!-- Navbar moderne -->
     <nav class="navbar" id="navbar">
-        <a href="#" class="logo">
+        <a href="../index.html" class="logo">
             <i class="fas fa-graduation-cap"></i>
-            EtudiantsFR
+            GPI
         </a>
         
         <div class="menu-toggle" id="mobile-menu">
@@ -43,25 +43,25 @@
         
         <ul class="nav-links" id="nav-links">
             <li><a href="../index.html">Accueil</a></li>
-            <li><a href="#" class="active">Étudiants</a></li>
-            <li><a href="#">Parents</a></li>
+            <li><a href="etudiants.html" class="active">Étudiants</a></li>
+            <li><a href="../parents/parents.html">Parents</a></li>
             <li class="dropdown">
                 <a href="#">Demande de visa</a>
                 <div class="dropdown-content">
-                    <a href="#">AVI</a>
-                    <a href="#">Hébergement</a>
+                    <a href="avi.html">AVI</a>
+                    <a href="offre_hebergement.html">Hébergement</a>
                 </div>
             </li>
             <li class="dropdown">
                 <a href="#">Vivre en France</a>
                 <div class="dropdown-content">
-                    <a href="#">Job étudiants</a>
-                    <a href="#">Assurances</a>
+                    <a href="../vivre_france/job_etudiant.html">Job étudiants</a>
+                    <a href="../vivre_france/assurances.html">Assurances</a>
                 </div>
             </li>
-            <li><a href="#">Tarifs</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#" class="login-btn">Se connecter</a></li>
+            <li><a href="../tarifs.html">Tarifs</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+            <li><a href="../connexion/login.html" class="login-btn">Se connecter</a></li>
         </ul>
     </nav>
 
@@ -108,7 +108,7 @@
             <p>Parlons ensemble</p>
             <p>Il est primordial pour nous de travailler en étroite collaboration avec ceux qui nous confient leur destin. C'est une responsabilité que nous ne prenons pas à la légère. La première étape du voyage consiste à définir le parcours et préparer sa monture. Un projet clair et personnel est indispensable pour réussir ses études supérieures. Parlons ensemble pour trouver un plan qui te corresponde.</p>
             <br/>
-            <brbutton class="btn btn-primary">Compléter mon profil</button>
+            <button class="btn btn-primary">Compléter mon profil</button>
         </div>
         
         <div class="student-section animate delay-1">
@@ -124,7 +124,7 @@
     <footer>
         <div class="footer-content">
             <div class="footer-column">
-                <h3>EtudiantsFR</h3>
+                <h3>Groupe Projet International</h3>
                 <p>Accompagnement complet pour les étudiants internationaux souhaitant étudier en France.</p>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
