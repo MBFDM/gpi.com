@@ -3,29 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Espace Étudiants - GPI</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <title>Espace Étudiants - GPI | Votre réussite en France</title>
+    <meta name="description" content="Accompagnement complet pour étudiants internationaux : logement, visa, jobs, formations et intégration en France">
+    
     <!-- Préchargement des ressources critiques -->
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
     
-    <!-- Chargement asynchrone des polices -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <!-- Polices Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
     
-    <!-- CSS non critique chargé de manière asynchrone -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" media="print" onload="this.media='all'">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Favicon moderne -->
+    <!-- Bibliothèques CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    <!-- Favicon -->
     <link rel="icon" href="../assets/img/logo.jpg" type="image/x-icon">
-    <link rel="apple-touch-icon" href="images/logo/apple-touch-icon.png">
-    <link rel="manifest" href="site.webmanifest">
     
-    <!-- CSS principal avec préchargement -->
-    <link rel="preload" href="../assets/css/etudiants.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="../assets/css/etudiants.css"></noscript>
+    <!-- CSS principal -->
+    <link rel="stylesheet" href="../assets/css/etudiants.css">
+    
 </head>
 <body>
     <!-- Navbar moderne -->
@@ -56,6 +58,7 @@
                 <a href="#">Vivre en France</a>
                 <div class="dropdown-content">
                     <a href="../vivre_france/job_etudiant.html">Job étudiants</a>
+                    <a href="../vivre_france/alternance.html">Alternance - Entreprise</a>
                     <a href="../vivre_france/assurances.html">Assurances</a>
                 </div>
             </li>
@@ -69,169 +72,418 @@
     <header class="main-header">
         <div class="header-bg"></div>
         <div class="header-content">
-            <h1 class="header-title">Espace Étudiants</h1>
-            <p class="header-subtitle">Toutes les ressources pour réussir votre projet d'études en France</p>
+            <h1 class="header-title">Votre réussite commence ici</h1>
+            <p class="header-subtitle">Accompagnement personnalisé pour vos études en France</p>
+            <a href="#services" class="btn btn-primary">Découvrir nos services</a>
         </div>
     </header>
-    
-    <div class="footer-wave"></div>
 
-
-    <!-- Contenu principal -->
-    <main class="main-content">
-        <div class="section-title animate">
-            <h2>Services pour étudiants</h2>
+    <!-- Section Services -->
+    <section id="services" class="services-section">
+        <div class="section-title">
+            <h2>Nos services complets</h2>
+            <p>Un accompagnement sur mesure à chaque étape de votre projet</p>
         </div>
         
-        <div class="card-container">
-            <div class="action-card animate delay-1">
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-university"></i>
+                <h3>Orientation académique</h3>
+                <p>Notre équipe d'experts vous guide dans le choix de votre formation et établissement en fonction de votre profil et ambitions.</p>
+                <ul>
+                    <li>Analyse de votre parcours</li>
+                    <li>Sélection des meilleures options</li>
+                    <li>Préparation des dossiers</li>
+                </ul>
+            </div>
+            
+            <div class="service-card highlight">
+                <i class="fas fa-passport"></i>
+                <h3>Accompagnement visa</h3>
+                <p>Gestion complète de votre dossier de visa étudiant avec un taux de réussite de 98%.</p>
+                <ul>
+                    <li>Préparation des documents</li>
+                    <li>Simulation d'entretien</li>
+                    <li>Suivi jusqu'à l'obtention</li>
+                </ul>
+            </div>
+            
+            <div class="service-card">
                 <i class="fas fa-home"></i>
-                <h3>Trouver mon logement</h3>
-                <p>Découvrez nos solutions d'hébergement adaptées aux étudiants internationaux</p>
+                <h3>Solutions logement</h3>
+                <p>Accès à notre réseau de résidences étudiantes et particuliers fiables dans toute la France.</p>
+                <ul>
+                    <li>Garantie sans garant</li>
+                    <li>Visites virtuelles</li>
+                    <li>Aide aux formalités</li>
+                </ul>
             </div>
-            
-            <div class="action-card animate delay-2">
-                <i class="fas fa-briefcase"></i>
-                <h3>Mon Job étudiant</h3>
-                <p>Trouvez un emploi compatible avec vos études et votre visa</p>
-            </div>
-            
-            <div class="action-card animate delay-3">
-                <i class="fas fa-graduation-cap"></i>
-                <h3>Mes démarches</h3>
-                <p>Accédez à tous les documents et procédures pour votre séjour</p>
-            </div>
+        </div>
+    </section>
+
+    <!-- Section Témoignages -->
+    <section class="testimonials-section">
+        <div class="section-title">
+            <h2>Ils nous ont fait confiance</h2>
+            <p>Découvrez les expériences de nos étudiants</p>
         </div>
         
-        <div class="student-section animate">
-            <h2>Mon Profil</h2>
-            <p>Parlons ensemble</p>
-            <p>Il est primordial pour nous de travailler en étroite collaboration avec ceux qui nous confient leur destin. C'est une responsabilité que nous ne prenons pas à la légère. La première étape du voyage consiste à définir le parcours et préparer sa monture. Un projet clair et personnel est indispensable pour réussir ses études supérieures. Parlons ensemble pour trouver un plan qui te corresponde.</p>
-            <br/>
-            <button class="btn btn-primary">Compléter mon profil</button>
+        <div class="testimonials-slider swiper">
+            <div class="swiper-wrapper">
+                <div class="testimonial-card swiper-slide">
+                    <div class="testimonial-content">
+                        <p>"Grâce à GPI, j'ai pu intégrer l'école de mes rêves à Paris. Leur accompagnement pour le visa a été précieux."</p>
+                        <div class="student-info">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Marie K.">
+                            <div>
+                                <h4>Marie K.</h4>
+                                <span>Étudiante en Master à la Sorbonne</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card swiper-slide">
+                    <div class="testimonial-content">
+                        <p>"Le service job étudiant m'a permis de trouver un emploi compatible avec mes horaires de cours rapidement."</p>
+                        <div class="student-info">
+                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Ahmed S.">
+                            <div>
+                                <h4>Ahmed S.</h4>
+                                <span>Étudiant en Informatique à Lyon</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card swiper-slide">
+                    <div class="testimonial-content">
+                        <p>"L'accompagnement pour trouver un logement m'a évité beaucoup de stress. Je recommande vivement GPI."</p>
+                        <div class="student-info">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Fatou D.">
+                            <div>
+                                <h4>Fatou D.</h4>
+                                <span>Étudiante en Commerce à Lille</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <!-- Section Statistiques -->
+    <section class="stats-section">
+        <div class="section-title">
+            <h2>GPI en chiffres</h2>
+            <p>Notre impact et notre expérience au service de votre réussite</p>
         </div>
         
-        <div class="student-section animate delay-1">
-            <h2>Choisir ma formation</h2>
-            <p>L'une des premières raisons de l'échec, c'est la perte de motivation. Quand on se sent bien dans sa formation, on progresse plus vite. Un grand nombre d'étudiants ambitieux et déterminés au départ ont connu l'obstacle de l'orientation et n'ont jamais su le surmonter.</p>
-            <p>"Bien choisir" est synonyme de "bien commencer" et rime avec "bien finir". Nous t'apportons notre expérience et nos conseils.</p>
-            <br/>
-            <button class="btn btn-secondary">Explorer les formations</button>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>15+</h3>
+                <p>Années d'expérience</p>
+            </div>
+            
+            <div class="stat-item">
+                <h3>98%</h3>
+                <p>Taux de réussite aux visas</p>
+            </div>
+            
+            <div class="stat-item">
+                <h3>5000+</h3>
+                <p>Étudiants accompagnés</p>
+            </div>
+            
+            <div class="stat-item">
+                <h3>50+</h3>
+                <p>Pays d'origine</p>
+            </div>
         </div>
-    </main>
-    <br/>
+    </section>
+
+    <!-- Section Timeline -->
+    <section class="timeline-section">
+        <div class="section-title">
+            <h2>Votre parcours avec GPI</h2>
+            <p>Les étapes clés de votre projet d'études en France</p>
+        </div>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>1. Premier contact</h3>
+                    <p>Évaluation de votre profil et définition de vos objectifs</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>2. Choix de formation</h3>
+                    <p>Sélection des établissements correspondant à votre projet</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>3. Inscription</h3>
+                    <p>Gestion de votre dossier d'admission</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>4. Préparation visa</h3>
+                    <p>Accompagnement complet pour votre demande de visa</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>5. Installation</h3>
+                    <p>Aide au logement, banque, assurance et démarches administratives</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>6. Intégration</h3>
+                    <p>Suivi et conseils pendant vos études</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section FAQ -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Questions fréquentes</h2>
+                <p>Trouvez des réponses à vos interrogations</p>
+            </div>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Quel est le coût moyen des études en France ?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Les frais de scolarité en France sont parmi les plus accessibles d'Europe. Pour les universités publiques, comptez environ 170-380€ par an en licence et 243-600€ en master. Les écoles privées varient entre 3 000€ et 10 000€ par an. Nous vous aidons à trouver des bourses et solutions de financement.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Puis-je travailler en tant qu'étudiant international ?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Oui, avec un visa étudiant, vous avez le droit de travailler jusqu'à 964 heures par an (environ 60% d'un temps plein). Nous vous aidons à trouver des jobs compatibles avec vos études et à comprendre vos droits.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Comment trouver un logement en France ?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Nous proposons plusieurs solutions : résidences étudiantes (CROUS ou privées), colocation, logement chez l'habitant. Notre service logement vous guide dans vos recherches et formalités, même sans garant en France.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Quel niveau de français est nécessaire ?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Cela dépend de votre formation. Pour les cursus en français, un niveau B2 est généralement requis. Pour les programmes en anglais, le français n'est pas obligatoire mais recommandé pour la vie quotidienne. Nous proposons des cours de préparation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Prêt à commencer votre aventure en France ?</h2>
+            <p>Notre équipe est à votre disposition pour répondre à toutes vos questions et vous accompagner dans votre projet.</p>
+            <div class="cta-buttons">
+                <a href="../contact.html" class="btn btn-primary">Nous contacter</a>
+                <a href="../connexion/login.html" class="btn btn-secondary">Espace étudiant</a>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer moderne -->
     <footer>
         <div class="footer-content">
             <div class="footer-column">
                 <h3>Groupe Projet International</h3>
-                <p>Accompagnement complet pour les étudiants internationaux souhaitant étudier en France.</p>
+                <p>Depuis 2010, nous accompagnons les étudiants internationaux dans leur projet d'études en France avec expertise et bienveillance.</p>
                 <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
             
             <div class="footer-column">
-                <h3>Liens rapides</h3>
-                <a href="#">Espace Étudiants</a>
-                <a href="#">Espace Parents</a>
-                <a href="#">Demande de visa</a>
-                <a href="#">Vivre en France</a>
-                <a href="#">Nos tarifs</a>
+                <h3>Nos services</h3>
+                <ul>
+                    <li><a href="#">Orientation académique</a></li>
+                    <li><a href="#">Demandes de visa</a></li>
+                    <li><a href="#">Solutions de logement</a></li>
+                    <li><a href="#">Jobs étudiants</a></li>
+                    <li><a href="#">Assurances étudiantes</a></li>
+                    <li><a href="#">Cours de français</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Ressources</h3>
+                <ul>
+                    <li><a href="#">Guide de l'étudiant</a></li>
+                    <li><a href="#">Blog conseils</a></li>
+                    <li><a href="#">Témoignages</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Téléchargements</a></li>
+                </ul>
             </div>
             
             <div class="footer-column">
                 <h3>Contact</h3>
-                <p><i class="fas fa-map-marker-alt"></i> 123 Rue de l'Université, Paris</p>
-                <p><i class="fas fa-phone"></i> +33 1 23 45 67 89</p>
-                <p><i class="fas fa-envelope"></i> contact@etudiantsfr.com</p>
-            </div>
-            
-            <div class="footer-column">
-                <h3>Newsletter</h3>
-                <p>Abonnez-vous pour recevoir nos conseils et offres spéciales.</p>
-                <form>
-                    <input type="email" placeholder="Votre email" style="width: 100%; padding: 0.8rem; border: none; border-radius: 6px; margin-bottom: 1rem;">
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">S'abonner</button>
-                </form>
+                <address>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Rue de l'Université, 75007 Paris</p>
+                    <p><i class="fas fa-phone"></i> +33 1 23 45 67 89</p>
+                    <p><i class="fas fa-envelope"></i> contact@gpi-education.com</p>
+                    <p><i class="fas fa-clock"></i> Lundi-Vendredi: 9h-18h</p>
+                </address>
             </div>
         </div>
         
-        <div class="copyright">
-            <p>&copy; 2023 EtudiantsFR. Tous droits réservés. | <a href="#" style="color: rgba(255,255,255,0.7);">Mentions légales</a> | <a href="#" style="color: rgba(255,255,255,0.7);">Politique de confidentialité</a></p>
+        <div class="footer-bottom">
+            <div class="copyright">
+                <p>&copy; 2023 Groupe Projet International. Tous droits réservés.</p>
+            </div>
+            <div class="legal-links">
+                <a href="#">Mentions légales</a>
+                <a href="#">Politique de confidentialité</a>
+                <a href="#">Conditions générales</a>
+                <a href="#">Cookies</a>
+            </div>
         </div>
     </footer>
+    
+    <!-- Scripts JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
     
     <script>
         // Menu mobile
         const mobileMenu = document.getElementById('mobile-menu');
         const navLinks = document.getElementById('nav-links');
-        const dropdowns = document.querySelectorAll('.dropdown');
         
-        mobileMenu.addEventListener('click', function() {
-            this.classList.toggle('active');
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
             navLinks.classList.toggle('active');
         });
         
+        // Gestion des dropdowns en mobile
+        const dropdowns = document.querySelectorAll('.dropdown > a');
+        
         dropdowns.forEach(dropdown => {
-            const link = dropdown.querySelector('a');
-            
-            link.addEventListener('click', function(e) {
+            dropdown.addEventListener('click', (e) => {
                 if (window.innerWidth <= 992) {
                     e.preventDefault();
-                    dropdown.classList.toggle('active');
+                    const parent = dropdown.parentElement;
+                    parent.classList.toggle('active');
                 }
             });
         });
         
-        // Animation au défilement
-        function animateOnScroll() {
-            const elements = document.querySelectorAll('.animate');
-            const windowHeight = window.innerHeight;
-            
-            elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-                
-                if (elementPosition < windowHeight - elementVisible) {
-                    element.classList.add('visible');
-                }
-            });
-        }
-        
         // Navbar scroll effect
-        function handleScroll() {
+        window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
-            if (window.scrollY > 100) {
+            if (window.scrollY > 50) {
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
             }
-        }
-        
-        window.addEventListener('scroll', function() {
-            animateOnScroll();
-            handleScroll();
         });
         
-        window.addEventListener('load', function() {
-            animateOnScroll();
-            handleScroll();
+        // Initialisation du slider témoignages
+        const swiper = new Swiper('.testimonials-slider', {
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
         });
         
-        // Animation header background
-        function parallaxEffect() {
-            const headerBg = document.querySelector('.header-bg');
-            if (headerBg) {
-                const scrollPosition = window.pageYOffset;
-                headerBg.style.transform = `translateY(${scrollPosition * 0.5}px)`;
-            }
-        }
+        // Animation au scroll
+        const animateElements = document.querySelectorAll('.animate');
         
-        window.addEventListener('scroll', parallaxEffect);
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        animateElements.forEach(el => {
+            observer.observe(el);
+        });
+        
+        // FAQ accordéon
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                item.classList.toggle('active');
+                
+                // Fermer les autres items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+            });
+        });
+        
+        // Smooth scroll pour les liens
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
     </script>
 </body>
 </html>
