@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GPI - Étudier en France</title>
     
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+
     <!-- Préchargement des ressources critiques -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"/>
     
     <!-- Chargement asynchrone des polices -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
@@ -29,15 +30,36 @@
     <noscript><link rel="stylesheet" href="assets/css/style.css"></noscript>
 </head>
 <body>
+    <!-- Animation de préchargement -->
+    <div class="loader" id="page-loader">
+        <div class="loader-circle"></div>
+    </div>
+    
+    <!-- Effet de lumière qui suit la souris -->
+    <div class="light-spot" id="light-spot"></div>
+    
+    <!-- Cercles de morphing en arrière-plan -->
+    <div class="morphing-circle"></div>
+    <div class="morphing-circle"></div>
+    <div class="morphing-circle"></div>
+    
     <!-- Header avec Navbar et Hero -->
     <header>
+        <!-- Effet de particules -->
+        <div id="particles-js" class="particles-js"></div>
+        
         <div class="header-overlay"></div>
         <div class="header-wave"></div>
+        <!-- Vagues animées -->
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        
         <div class="header-content">
             <nav class="navbar">
                 <a href="index.html" class="logo">
                     <i class="fas fa-graduation-cap"></i>
-                    GPI
+                    <span class="gradient-text">GPI</span>
                 </a>
                 
                 <div class="menu-toggle" id="mobile-menu">
@@ -67,16 +89,16 @@
                     </li>
                     <li><a href="tarifs.html">Tarifs</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="Connexion/login.html" class="login-btn">Connexion</a></li>
+                    <li><a href="Connexion/login.html" class="login-btn pulse-animation">Connexion</a></li>
                 </ul>
             </nav>
             
             <div class="hero">
-                <h1>Réussissez votre projet d'études en France</h1>
+                <h1 class="fill-text">Réussissez votre projet d'études en France</h1>
                 <p>Notre équipe d'experts vous accompagne à chaque étape de votre parcours, de la préparation de votre dossier à votre intégration en France, pour faire de votre rêve une réalité.</p>
                 <div class="hero-buttons">
                     <a href="#contact" class="hero-btn btn-primary pulse-animation">Demander un entretien</a>
-                    <a href="#etudiants" class="hero-btn btn-secondary">Découvrir nos services</a>
+                    <a href="#etudiants" class="hero-btn btn-secondary float-animation">Découvrir nos services</a>
                 </div>
             </div>
         </div>
@@ -274,24 +296,29 @@
         <div class="card-container">
             <div class="card animate delay-1" style="text-align: center;" data-aos="fade-right">
                 <div class="card-content">
-                    <h3>Accompagnement de base</h3>
-                    <p style="font-size: 2.5rem; color: var(--primary); font-weight: 700; margin: 1.5rem 0;">€500</p>
+                    <h3>🟢 Formule Essentielle</h3>
+                    <p style="font-size: 2.5rem; color: var(--primary); font-weight: 700; margin: 1.5rem 0;">500€</p>
+                    <h6><i>L’essentiel pour bien démarrer votre projet d’études en France</i></h6>
                     <ul style="text-align: left; margin: 1.5rem 0; list-style-type: none;">
                         <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
                             <i class="fas fa-check" style="position: absolute; left: 0; color: var(--accent);"></i>
-                            Aide à la recherche de formation
+                            Conseil personnalisé pour le choix des établissements
                         </li>
                         <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
                             <i class="fas fa-check" style="position: absolute; left: 0; color: var(--accent);"></i>
-                            Préparation du dossier de candidature
+                            Relecture de la lettre de motivation (projet d’études et projet professionnel)
                         </li>
                         <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
                             <i class="fas fa-check" style="position: absolute; left: 0; color: var(--accent);"></i>
-                            Conseils pour l'entretien
+                            Préparation à l’entretien Campus France
                         </li>
                         <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
                             <i class="fas fa-check" style="position: absolute; left: 0; color: var(--accent);"></i>
-                            Assistance administrative de base
+                            Recherche d’école privée en cas de refus dans les établissements publics
+                        </li>
+                        <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-check" style="position: absolute; left: 0; color: var(--accent);"></i>
+                            Assistance à la constitution du dossier de demande de visa étudiant
                         </li>
                     </ul>
                     <a href="tarifs.html" class="btn btn-primary">Choisir ce package</a>
@@ -300,31 +327,40 @@
             
             <div class="card animate delay-2" style="text-align: center; transform: scale(1.05); z-index: 2; border: 2px solid var(--accent);" data-aos="zoom-in">
                 <div style="background: var(--gradient-primary); color: white; padding: 1rem; margin: -2rem -2rem 2rem -2rem; border-radius: 10px 10px 0 0;">
-                    <p style="font-weight: 600; margin: 0;">Le plus populaire</p>
+                    <!--p style="font-weight: 600; margin: 0;">Le plus populaire</p-->
                 </div>
                 <div class="card-content">
-                    <h3>Accompagnement complet</h3>
-                    <p style="font-size: 2.5rem; color: var(--primary); font-weight: 700; margin: 1.5rem 0;">€800</p>
+                    <h3>🔵 Formule Complète</h3>
+                    <p style="font-size: 2.5rem; color: var(--primary); font-weight: 700; margin: 1.5rem 0;">1000€</p>
+                    <h6><i>Une prise en charge complète de votre parcours, de l’orientation à l’arrivée en France</i></h6>
                     <ul style="text-align: left; margin: 1.5rem 0; list-style-type: none;">
                         <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
                             <i class="fas fa-check" style="position: absolute; left: 0; color: var(--accent);"></i>
-                            Tous les services du package de base
+                            Tous les services de la Formule Essentielle, +
                         </li>
                         <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
                             <i class="fas fa-check" style="position: absolute; left: 0; color: var(--accent);"></i>
-                            Préparation complète du dossier visa
+                            Assistance complète sur la plateforme Campus France (création du compte, dépôt du dossier, prise de rendez-vous)
                         </li>
                         <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
                             <i class="fas fa-check" style="position: absolute; left: 0; color: var(--accent);"></i>
-                            Recherche et réservation de logement
+                            Accompagnement à la recherche de logement étudiant
                         </li>
                         <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
                             <i class="fas fa-check" style="position: absolute; left: 0; color: var(--accent);"></i>
-                            Simulation d'entretien personnalisée
+                            Réservation de billet d’avion étudiant à tarif préférentiel
                         </li>
                         <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
                             <i class="fas fa-check" style="position: absolute; left: 0; color: var(--accent);"></i>
-                            Assistance jusqu'à l'obtention du visa
+                            Conseils pour l’arrivée en France : CAF, téléphone, sécurité sociale, transport
+                        </li>
+                        <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-check" style="position: absolute; left: 0; color: var(--accent);"></i>
+                            Accompagnement à la demande de titre de séjour étudiant
+                        </li>
+                        <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-check" style="position: absolute; left: 0; color: var(--accent);"></i>
+                            Coaching en orientation professionnelle (stages, jobs étudiants, insertion)
                         </li>
                     </ul>
                     <a href="tarifs.html" class="btn btn-primary">Choisir ce package</a>
@@ -333,28 +369,29 @@
             
             <div class="card animate delay-3" style="text-align: center;" data-aos="fade-left">
                 <div class="card-content">
-                    <h3>Pack intégration</h3>
-                    <p style="font-size: 2.5rem; color: var(--primary); font-weight: 700; margin: 1.5rem 0;">€350</p>
+                    <h3>✨ Formule 𝓟𝓻𝓮𝓶𝓲𝓾𝓶</h3>
+                    <p style="font-size: 2.5rem; color: var(--primary); font-weight: 700; margin: 1.5rem 0;">1500€</p>
+                    <h6><i>Une expérience haut de gamme, pour voyager et s’installer en toute sérénité</i></h6>
                     <ul style="text-align: left; margin: 1.5rem 0; list-style-type: none;">
                         <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
                             <i class="fas fa-check" style="position: absolute; left: 0; color: var(--accent);"></i>
-                            Accueil à l'aéroport
+                            Tous les services de la Formule Complète, +
                         </li>
                         <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
                             <i class="fas fa-check" style="position: absolute; left: 0; color: var(--accent);"></i>
-                            Carte SIM française
+                            Assistance VIP pour toutes les démarches à distance
                         </li>
                         <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
                             <i class="fas fa-check" style="position: absolute; left: 0; color: var(--accent);"></i>
-                            Ouverture compte bancaire
+                            Prise en charge complète de la réservation du logement et attestation fournie
                         </li>
                         <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
                             <i class="fas fa-check" style="position: absolute; left: 0; color: var(--accent);"></i>
-                            Inscription à la sécurité sociale
+                            AVI (Attestation de virement irrecevable)
                         </li>
                         <li style="margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">
                             <i class="fas fa-check" style="position: absolute; left: 0; color: var(--accent);"></i>
-                            Visite d'orientation de la ville
+                            Accueil à l’aéroport en France (selon la destination)
                         </li>
                     </ul>
                     <a href="tarifs.html" class="btn btn-primary">Choisir ce package</a>
@@ -371,11 +408,11 @@
         </div>
         
         <div class="partenaires-grid">
-            <img src="assets/img/universite_paris.jpg" alt="Université Paris" class="partenaire-logo" loading="lazy" data-aos="flip-left">
-            <img src="assets/img/campus_france.webp" alt="Campus France" class="partenaire-logo" loading="lazy" data-aos="flip-left" data-aos-delay="100">
-            <img src="assets/img/bnp_paribas.webp" alt="BNP Paribas" class="partenaire-logo" loading="lazy" data-aos="flip-left" data-aos-delay="200">
-            <img src="assets/img/escp_europe.webp" alt="ESCP Europe" class="partenaire-logo" loading="lazy" data-aos="flip-left" data-aos-delay="300">
-            <img src="assets/img/cci_france.png" alt="CCI France" class="partenaire-logo" loading="lazy" data-aos="flip-left" data-aos-delay="400">
+            <img src="../gpi/assets/img/universite_paris.jpg" alt="Université Paris" class="partenaire-logo" loading="lazy" data-aos="flip-left">
+            <img src="../gpi/assets/img/campus_france.webp" alt="Campus France" class="partenaire-logo" loading="lazy" data-aos="flip-left" data-aos-delay="100">
+            <img src="../gpi/assets/img/bnp_paribas.webp" alt="BNP Paribas" class="partenaire-logo" loading="lazy" data-aos="flip-left" data-aos-delay="200">
+            <img src="../gpi/assets/img/escp_europe.webp" alt="ESCP Europe" class="partenaire-logo" loading="lazy" data-aos="flip-left" data-aos-delay="300">
+            <img src="../gpi/assets/img/cci_france.png" alt="CCI France" class="partenaire-logo" loading="lazy" data-aos="flip-left" data-aos-delay="400">
         </div>
     </section>
     
@@ -596,7 +633,47 @@
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
     <script>
+        // Masquer le loader une fois la page chargée
+        window.addEventListener('load', function() {
+            const loader = document.getElementById('page-loader');
+            setTimeout(() => {
+                loader.classList.add('hidden');
+            }, 1000); // 1 seconde pour permettre l'animation de fin
+        });
+        
+        // Effet de lumière qui suit la souris
+        document.addEventListener('mousemove', function(e) {
+            const lightSpot = document.getElementById('light-spot');
+            lightSpot.style.left = e.clientX + 'px';
+            lightSpot.style.top = e.clientY + 'px';
+        });
+        
+        // Initialisation des particules
+        document.addEventListener('DOMContentLoaded', function() {
+            if (document.getElementById('particles-js')) {
+                particlesJS('particles-js', {
+                    particles: {
+                        number: { value: 80, density: { enable: true, value_area: 800 } },
+                        color: { value: "#ffffff" },
+                        shape: { type: "circle" },
+                        opacity: { value: 0.5, random: true },
+                        size: { value: 3, random: true },
+                        line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
+                        move: { enable: true, speed: 2, direction: "none", random: true, straight: false, out_mode: "out" }
+                    },
+                    interactivity: {
+                        detect_on: "canvas",
+                        events: {
+                            onhover: { enable: true, mode: "repulse" },
+                            onclick: { enable: true, mode: "push" }
+                        }
+                    }
+                });
+            }
+        });
         // Initialisation de AOS (Animate On Scroll)
         AOS.init({
             duration: 800,

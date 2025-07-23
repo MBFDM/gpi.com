@@ -26,11 +26,23 @@
     <noscript><link rel="stylesheet" href="assets/css/tarifs.css"></noscript>
 </head>
 <body>
+    <!-- Animation de préchargement -->
+    <div class="loader" id="page-loader">
+        <div class="loader-circle"></div>
+    </div>
+    
+    <!-- Effet de lumière qui suit la souris -->
+    <div class="light-spot" id="light-spot"></div>
+    
+    <!-- Cercles de morphing en arrière-plan -->
+    <div class="morphing-circle"></div>
+    <div class="morphing-circle"></div>
+    <div class="morphing-circle"></div>
     <!-- Navbar -->
     <nav class="navbar" id="navbar">
         <a href="index.html" class="logo">
             <i class="fas fa-graduation-cap"></i>
-            GPI
+            <span class="gradient-text">GPI</span>
         </a>
         
         <ul class="nav-links" id="nav-links">
@@ -55,6 +67,15 @@
 
     <!-- Hero Section -->
     <section class="pricing-hero">
+        <!-- Effet de particules -->
+        <div id="particles-js" class="particles-js"></div>
+        
+        <div class="header-overlay"></div>
+        <div class="header-wave"></div>
+        <!-- Vagues animées -->
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
         <div class="container">
             <h1 data-aos="fade-up">Nos offres tarifaires</h1>
             <p data-aos="fade-up" data-aos-delay="200">Choisissez la formule qui correspond à vos besoins et démarrez votre projet d'études en France</p>
@@ -73,16 +94,17 @@
             <div class="pricing-grid">
                 <div class="pricing-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="pricing-card-header">
-                        <h3>Essentiel</h3>
-                        <div class="price">49€</div>
+                        <h3>🟢 Formule Essentielle</h3>
+                        <div class="price">500€</div>
                         <div class="period">par mois</div>
                     </div>
                     <div class="pricing-card-body">
                         <ul class="pricing-features">
-                            <li>Accès à la plateforme d'information</li>
-                            <li>Guide complet des démarches</li>
-                            <li>Liste des documents requis</li>
-                            <li>Espace membre personnel</li>
+                            <li>Conseil personnalisé pour le choix des établissements</li>
+                            <li>Relecture de la lettre de motivation (projet d’études et projet professionnel)</li>
+                            <li>Préparation à l’entretien Campus France</li>
+                            <li>Recherche d’école privée en cas de refus dans les établissements publics</li>
+                            <li>Assistance à la constitution du dossier de demande de visa étudiant</li>
                             <li class="disabled">Accompagnement personnalisé</li>
                             <li class="disabled">Relance des administrations</li>
                             <li class="disabled">Service premium 24/7</li>
@@ -94,8 +116,8 @@
                 <div class="pricing-card popular" data-aos="fade-up" data-aos-delay="200">
                     <div class="popular-badge">Le plus populaire</div>
                     <div class="pricing-card-header">
-                        <h3>Complet</h3>
-                        <div class="price">99€</div>
+                        <h3>🔵 Formule Complète</h3>
+                        <div class="price">1000€</div>
                         <div class="period">par mois</div>
                     </div>
                     <div class="pricing-card-body">
@@ -115,7 +137,7 @@
                 <div class="pricing-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="pricing-card-header">
                         <h3>Premium</h3>
-                        <div class="price">199€</div>
+                        <div class="price">1500€</div>
                         <div class="period">par mois</div>
                     </div>
                     <div class="pricing-card-body">
@@ -344,9 +366,50 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
     <script>
+        // Masquer le loader une fois la page chargée
+        window.addEventListener('load', function() {
+            const loader = document.getElementById('page-loader');
+            setTimeout(() => {
+                loader.classList.add('hidden');
+            }, 1000); // 1 seconde pour permettre l'animation de fin
+        });
+        
+        // Effet de lumière qui suit la souris
+        document.addEventListener('mousemove', function(e) {
+            const lightSpot = document.getElementById('light-spot');
+            lightSpot.style.left = e.clientX + 'px';
+            lightSpot.style.top = e.clientY + 'px';
+        });
+        
+        // Initialisation des particules
+        document.addEventListener('DOMContentLoaded', function() {
+            if (document.getElementById('particles-js')) {
+                particlesJS('particles-js', {
+                    particles: {
+                        number: { value: 80, density: { enable: true, value_area: 800 } },
+                        color: { value: "#ffffff" },
+                        shape: { type: "circle" },
+                        opacity: { value: 0.5, random: true },
+                        size: { value: 3, random: true },
+                        line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
+                        move: { enable: true, speed: 2, direction: "none", random: true, straight: false, out_mode: "out" }
+                    },
+                    interactivity: {
+                        detect_on: "canvas",
+                        events: {
+                            onhover: { enable: true, mode: "repulse" },
+                            onclick: { enable: true, mode: "push" }
+                        }
+                    }
+                });
+            }
+        });
         // Animation On Scroll
         AOS.init({
             duration: 800,

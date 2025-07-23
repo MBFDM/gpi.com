@@ -26,11 +26,23 @@
     <noscript><link rel="stylesheet" href="../assets/css/assurances.css"></noscript>
 </head>
 <body>
+    <!-- Animation de préchargement -->
+    <div class="loader" id="page-loader">
+        <div class="loader-circle"></div>
+    </div>
+    
+    <!-- Effet de lumière qui suit la souris -->
+    <div class="light-spot" id="light-spot"></div>
+    
+    <!-- Cercles de morphing en arrière-plan -->
+    <div class="morphing-circle"></div>
+    <div class="morphing-circle"></div>
+    <div class="morphing-circle"></div>
     <!-- Navbar -->
     <nav class="navbar" id="navbar">
         <a href="index.html" class="logo">
             <i class="fas fa-graduation-cap"></i>
-            GPI
+            <span class="gradient-text">GPI</span>
         </a>
         
         <ul class="nav-links" id="nav-links">
@@ -54,6 +66,15 @@
 
     <!-- Hero Section -->
     <section class="assurance-hero">
+        <!-- Effet de particules -->
+        <div id="particles-js" class="particles-js"></div>
+        
+        <div class="header-overlay"></div>
+        <div class="header-wave"></div>
+        <!-- Vagues animées -->
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
         <div class="container">
             <h1 data-aos="fade-up">Assurances étudiantes</h1>
             <p data-aos="fade-up" data-aos-delay="200">Protégez votre logement et facilitez votre recherche avec nos solutions d'assurance adaptées aux étudiants internationaux</p>
@@ -195,8 +216,50 @@
     </footer>
 
     <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
     <script>
+        // Masquer le loader une fois la page chargée
+        window.addEventListener('load', function() {
+            const loader = document.getElementById('page-loader');
+            setTimeout(() => {
+                loader.classList.add('hidden');
+            }, 1000); // 1 seconde pour permettre l'animation de fin
+        });
+        
+        // Effet de lumière qui suit la souris
+        document.addEventListener('mousemove', function(e) {
+            const lightSpot = document.getElementById('light-spot');
+            lightSpot.style.left = e.clientX + 'px';
+            lightSpot.style.top = e.clientY + 'px';
+        });
+        
+        // Initialisation des particules
+        document.addEventListener('DOMContentLoaded', function() {
+            if (document.getElementById('particles-js')) {
+                particlesJS('particles-js', {
+                    particles: {
+                        number: { value: 80, density: { enable: true, value_area: 800 } },
+                        color: { value: "#ffffff" },
+                        shape: { type: "circle" },
+                        opacity: { value: 0.5, random: true },
+                        size: { value: 3, random: true },
+                        line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
+                        move: { enable: true, speed: 2, direction: "none", random: true, straight: false, out_mode: "out" }
+                    },
+                    interactivity: {
+                        detect_on: "canvas",
+                        events: {
+                            onhover: { enable: true, mode: "repulse" },
+                            onclick: { enable: true, mode: "push" }
+                        }
+                    }
+                });
+            }
+        });
         // Initialisation de AOS (Animate On Scroll)
         AOS.init({
             duration: 800,
